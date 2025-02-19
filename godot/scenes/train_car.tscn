@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b510yordih2nr"]
+
+[ext_resource type="Texture2D" uid="uid://po1atl8yfv8w" path="res://assets/Kooky - Pixel Train assets - v0.0.1/carriage_v18_car1.png" id="1_iwg2u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nio8v"]
+size = Vector2(1536, 72)
+
+[node name="TrainCar" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(6, 6)
+texture = ExtResource("1_iwg2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 156)
+shape = SubResource("RectangleShape2D_nio8v")
