@@ -1,16 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2pkgj3tt1uee"]
+[gd_scene load_steps=4 format=3 uid="uid://d2pkgj3tt1uee"]
 
 [ext_resource type="PackedScene" uid="uid://b510yordih2nr" path="res://scenes/train_car.tscn" id="1_ilubh"]
 [ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="2_scxpv"]
 [ext_resource type="PackedScene" uid="uid://djsewbh0y22eq" path="res://scenes/character_select.tscn" id="3_1y8l4"]
-[ext_resource type="PackedScene" uid="uid://blube5cir0v5s" path="res://helpers/actionable.tscn" id="3_r062q"]
-[ext_resource type="Resource" uid="uid://c8kgrbyjn827a" path="res://dialogue/test.dialogue" id="4_pmpbg"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mngvp"]
-radius = 64.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_uc2yr"]
-radius = 65.0
 
 [node name="Main" type="Node"]
 
@@ -21,27 +13,13 @@ position = Vector2(960, 888)
 position = Vector2(1496, 944)
 resting_location = Vector2(1496, 0)
 
-[node name="ActionableFinder" type="Area2D" parent="Alice"]
-collision_layer = 0
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Alice/ActionableFinder"]
-shape = SubResource("CircleShape2D_mngvp")
-
 [node name="Bob" parent="." instance=ExtResource("2_scxpv")]
 position = Vector2(831, 944)
 is_player_controlled = false
 character_name = "Bob"
 resting_location = Vector2(832, 0)
 
-[node name="Actionable" parent="Bob" instance=ExtResource("3_r062q")]
-dialogue_resource = ExtResource("4_pmpbg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bob/Actionable"]
-shape = SubResource("CircleShape2D_uc2yr")
-
 [node name="CharacterSelect" parent="." instance=ExtResource("3_1y8l4")]
-visible = false
 offset_left = 1152.0
 offset_top = 576.0
 offset_right = 1344.0
