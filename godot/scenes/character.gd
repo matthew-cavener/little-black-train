@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
+const DIALOGUE_EXIT_DELAY = 0.1
+const RESTING_LOCATION_THRESHOLD = 3.0
 
 @export var is_player_controlled: bool = true
 @export var character_name: String = "Alice"
@@ -35,7 +36,7 @@ func _physics_process(delta: float) -> void:
         velocity += get_gravity() * delta
     if is_player_controlled and not is_in_dialogue:
         handle_player_input()
-    elif not is_player_controlled:
+    elif not is_player_controlled and not is_in_dialogue:
         return_to_resting_location()
     move_and_slide()
 
@@ -44,7 +45,7 @@ func _on_dialogue_started(_resource) -> void:
 
 # Need to have a slight delay before re-enabling player control, or else using the "ui_accept" input will immediately re-trigger the dialogue
 func _on_dialogue_finished(_resource) -> void:
-    get_tree().create_timer(0.1).connect("timeout", _on_dialogue_exited)
+    get_tree().create_timer(DIALOGUE_EXIT_DELAY).connect("timeout", _on_dialogue_exited)
 
 func _on_dialogue_exited() -> void:
     is_in_dialogue = false
@@ -52,6 +53,12 @@ func _on_dialogue_exited() -> void:
 func switch_character(character_name: String) -> void:
     var new_character = get_tree().get_first_node_in_group(character_name)
     var current_character = get_tree().get_first_node_in_group("player")
+    if new_character == null:
+        print("Tried switching to non-existent character: %s" % character_name)
+        return
+    if current_character == null:
+        print("Tried switching from non-existent character, check the group assignment for player is working." )
+        return
     if new_character == current_character:
         print("Tried switching to current character")
         return

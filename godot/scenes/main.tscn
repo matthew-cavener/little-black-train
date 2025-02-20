@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2pkgj3tt1uee"]
+[gd_scene load_steps=3 format=3 uid="uid://d2pkgj3tt1uee"]
 
 [ext_resource type="PackedScene" uid="uid://b510yordih2nr" path="res://scenes/train_car.tscn" id="1_ilubh"]
 [ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="2_scxpv"]
-[ext_resource type="PackedScene" uid="uid://djsewbh0y22eq" path="res://scenes/character_select.tscn" id="3_1y8l4"]
 
 [node name="Main" type="Node"]
 
@@ -18,9 +17,3 @@ position = Vector2(831, 944)
 is_player_controlled = false
 character_name = "Bob"
 resting_location = Vector2(832, 0)
-
-[node name="CharacterSelect" parent="." instance=ExtResource("3_1y8l4")]
-offset_left = 1152.0
-offset_top = 576.0
-offset_right = 1344.0
-offset_bottom = 640.0
