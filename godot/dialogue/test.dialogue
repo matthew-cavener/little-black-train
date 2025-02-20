@@ -6,6 +6,8 @@ Nathan: Here are some choices.
 - Second one
 	Nathan: You picked the second one.
 - Start again => start
+- Walk in their shoes
+	do parent.switch_character(parent.character_name)
 - End the conversation => END
 Nathan: For more information see the online documentation.
 => END
