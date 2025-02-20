@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 @export var is_player_controlled: bool = true
 @export var character_name: String = "Alice"
@@ -14,12 +13,15 @@ const JUMP_VELOCITY = -400.0
 @onready var actionable_finder = $ActionableFinder
 @onready var actionable_finder_shape = $ActionableFinder/ActionableFinderShape
 
+var base_dialogue_resource: String
 var is_in_dialogue: bool = false
 
 func _ready() -> void:
     DialogueManager.dialogue_started.connect(_on_dialogue_started)
     DialogueManager.dialogue_ended.connect(_on_dialogue_finished)
     add_to_group(character_name)
+    base_dialogue_resource = "res://dialogue/%s/%s_base.dialogue" % [character_name.to_lower(), character_name.to_lower()]
+    actionable.dialogue_resource = load(base_dialogue_resource)
     if is_player_controlled:
         add_to_group("player")
         actionable_shape.set_deferred("disabled", true)
@@ -40,7 +42,11 @@ func _physics_process(delta: float) -> void:
 func _on_dialogue_started(_resource) -> void:
     is_in_dialogue = true
 
+# Need to have a slight delay before re-enabling player control, or else using the "ui_accept" input will immediately re-trigger the dialogue
 func _on_dialogue_finished(_resource) -> void:
+    get_tree().create_timer(0.1).connect("timeout", _on_dialogue_exited)
+
+func _on_dialogue_exited() -> void:
     is_in_dialogue = false
 
 func switch_character(character_name: String) -> void:

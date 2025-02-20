@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://dp4ru3oxpwjs6"
+path="res://.godot/imported/bob_base.dialogue-2e4e760e45ffac02173e5e978869459e.tres"
+
+[deps]
+
+source_file="res://dialogue/bob/bob_base.dialogue"
+dest_files=["res://.godot/imported/bob_base.dialogue-2e4e760e45ffac02173e5e978869459e.tres"]
+
+[params]
+
+defaults=true

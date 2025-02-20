@@ -34,7 +34,7 @@ character=""
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/test.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/test.dialogue", "res://dialogue/bob/bob_base.dialogue")
 
 [layer_names]
 
