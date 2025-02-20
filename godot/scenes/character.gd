@@ -21,6 +21,7 @@ func _ready() -> void:
     DialogueManager.dialogue_ended.connect(_on_dialogue_finished)
     add_to_group(character_name)
     if is_player_controlled:
+        add_to_group("player")
         actionable_shape.set_deferred("disabled", true)
         actionable_finder_shape.set_deferred("disabled", false)
     else:
@@ -43,14 +44,15 @@ func _on_dialogue_finished(_resource) -> void:
     is_in_dialogue = false
 
 func switch_character(character_name: String) -> void:
-    var new_character = get_tree().get_nodes_in_group(character_name)[0]
-    if new_character == self:
+    var new_character = get_tree().get_first_node_in_group(character_name)
+    var current_character = get_tree().get_first_node_in_group("player")
+    if new_character == current_character:
         print("Tried switching to current character")
         return
-    is_player_controlled = false
-    remove_from_group("player")
-    actionable_shape.set_deferred("disabled", false)
-    actionable_finder_shape.set_deferred("disabled", true)
+    current_character.is_player_controlled = false
+    current_character.remove_from_group("player")
+    current_character.actionable_shape.set_deferred("disabled", false)
+    current_character.actionable_finder_shape.set_deferred("disabled", true)
 
     new_character.is_player_controlled = true
     new_character.add_to_group("player")

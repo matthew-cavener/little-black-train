@@ -6,5 +6,4 @@ extends Area2D
 @onready var parent = get_parent()
 
 func action() -> void:
-    print(parent)
-    DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
+    DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start, [self])
