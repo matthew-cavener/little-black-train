@@ -8,11 +8,14 @@ const RESTING_LOCATION_THRESHOLD = 3.0
 @export var character_name: String = "Alice"
 @export var resting_location: Vector2 = Vector2(0, 0)
 @export var player_velocity_multiplier: float = 1.5
+@export var traits: Array
+@export var traits_known_to_player: Array
 
 @onready var actionable = $Actionable
 @onready var actionable_shape = $Actionable/ActionableShape
 @onready var actionable_finder = $ActionableFinder
 @onready var actionable_finder_shape = $ActionableFinder/ActionableFinderShape
+@onready var camera = $CharacterCamera
 
 var base_dialogue_resource: String
 var is_in_dialogue: bool = false
@@ -32,6 +35,7 @@ func _ready() -> void:
         actionable_finder_shape.set_deferred("disabled", true)
 
 func _physics_process(delta: float) -> void:
+    # camera.offset = camera.offset.lerp(velocity, delta * 0.6)
     if not is_on_floor():
         velocity += get_gravity() * delta
     if is_player_controlled and not is_in_dialogue:
@@ -71,6 +75,9 @@ func switch_character(character_name: String) -> void:
     new_character.add_to_group("player")
     new_character.actionable_shape.set_deferred("disabled", true)
     new_character.actionable_finder_shape.set_deferred("disabled", false)
+
+    new_character.camera.enabled = true
+    current_character.camera.enabled = false
 
 
 func handle_player_input() -> void:

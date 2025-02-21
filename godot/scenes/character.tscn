@@ -18,6 +18,7 @@ radius = 64.0
 [node name="Character" type="CharacterBody2D" groups=["character"]]
 collision_layer = 0
 script = ExtResource("1_1kv16")
+traits = ["helpful", "afraid of spiders"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lx5xg")
@@ -39,3 +40,11 @@ collision_mask = 32
 
 [node name="ActionableFinderShape" type="CollisionShape2D" parent="ActionableFinder"]
 shape = SubResource("CircleShape2D_uiytm")
+
+[node name="CharacterCamera" type="Camera2D" parent="."]
+visible = false
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
