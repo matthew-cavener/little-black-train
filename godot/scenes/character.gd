@@ -15,7 +15,7 @@ const RESTING_LOCATION_THRESHOLD = 3.0
 @onready var actionable_shape = $Actionable/ActionableShape
 @onready var actionable_finder = $ActionableFinder
 @onready var actionable_finder_shape = $ActionableFinder/ActionableFinderShape
-@onready var camera = $CharacterCamera
+@onready var camera = get_tree().get_first_node_in_group("camera")
 
 var base_dialogue_resource: String
 var is_in_dialogue: bool = false
@@ -35,7 +35,6 @@ func _ready() -> void:
         actionable_finder_shape.set_deferred("disabled", true)
 
 func _physics_process(delta: float) -> void:
-    # camera.offset = camera.offset.lerp(velocity, delta * 0.6)
     if not is_on_floor():
         velocity += get_gravity() * delta
     if is_player_controlled and not is_in_dialogue:
@@ -54,11 +53,11 @@ func _on_dialogue_finished(_resource) -> void:
 func _on_dialogue_exited() -> void:
     is_in_dialogue = false
 
-func switch_character(character_name: String) -> void:
-    var new_character = get_tree().get_first_node_in_group(character_name)
+func switch_character(new_character_name: String) -> void:
+    var new_character = get_tree().get_first_node_in_group(new_character_name)
     var current_character = get_tree().get_first_node_in_group("player")
     if new_character == null:
-        print("Tried switching to non-existent character: %s" % character_name)
+        print("Tried switching to non-existent character: %s" % new_character_name)
         return
     if current_character == null:
         print("Tried switching from non-existent character, check the group assignment for player is working." )
@@ -76,8 +75,7 @@ func switch_character(character_name: String) -> void:
     new_character.actionable_shape.set_deferred("disabled", true)
     new_character.actionable_finder_shape.set_deferred("disabled", false)
 
-    new_character.camera.enabled = true
-    current_character.camera.enabled = false
+    camera.follow_target = new_character
 
 
 func handle_player_input() -> void:
