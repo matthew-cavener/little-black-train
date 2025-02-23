@@ -16,23 +16,24 @@ ease = 2
 [node name="Main" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_o1myd")]
+z_index = -10
 
 [node name="TrainCar" parent="." instance=ExtResource("1_ilubh")]
-position = Vector2(960, 768)
+position = Vector2(960, 540)
 
 [node name="Alice" parent="." instance=ExtResource("2_scxpv")]
-position = Vector2(1440, 808)
+position = Vector2(1432, 752)
 resting_location = Vector2(1440, 912)
 
 [node name="Bob" parent="." instance=ExtResource("2_scxpv")]
-position = Vector2(720, 792)
+position = Vector2(720, 752)
 is_player_controlled = false
 character_name = "Bob"
 resting_location = Vector2(720, 912)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target") groups=["camera"]]
 top_level = true
-position = Vector2(1440, 540)
+position = Vector2(1432, 540)
 script = ExtResource("3_cupwr")
 follow_mode = 5
 follow_target = NodePath("../Alice")
@@ -40,14 +41,14 @@ tween_resource = SubResource("Resource_32rft")
 tween_on_load = false
 follow_damping = true
 follow_damping_value = Vector2(0.3, 0.3)
-dead_zone_width = 0.06
-dead_zone_height = 0.1
+dead_zone_width = 0.04
+dead_zone_height = 0.106
 draw_limits = true
 limit_bottom = 1080
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(1440, 540)
+position = Vector2(1432, 540)
 process_callback = 0
 limit_bottom = 1080
 limit_smoothed = true
