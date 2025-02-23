@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cokdg24j2nsgn"
+path="res://.godot/imported/bob_to_alice.dialogue-75bc96475489f5b26099d27d9dae3852.tres"
+
+[deps]
+
+source_file="res://dialogue/bob/bob_to_alice.dialogue"
+dest_files=["res://.godot/imported/bob_to_alice.dialogue-75bc96475489f5b26099d27d9dae3852.tres"]
+
+[params]
+
+defaults=true
