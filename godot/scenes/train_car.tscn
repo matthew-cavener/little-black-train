@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://po1atl8yfv8w" path="res://assets/Kooky - Pixel Train assets - v0.0.1/carriage_v18_car1.png" id="1_iwg2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nio8v"]
-size = Vector2(1536, 72)
+size = Vector2(1536, 64)
 
 [node name="TrainCar" type="StaticBody2D"]
 
@@ -12,5 +12,5 @@ scale = Vector2(6, 6)
 texture = ExtResource("1_iwg2u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 156)
+position = Vector2(0, 160)
 shape = SubResource("RectangleShape2D_nio8v")

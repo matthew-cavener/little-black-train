@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2pkgj3tt1uee"]
+[gd_scene load_steps=8 format=3 uid="uid://d2pkgj3tt1uee"]
 
 [ext_resource type="PackedScene" uid="uid://b510yordih2nr" path="res://scenes/train_car.tscn" id="1_ilubh"]
+[ext_resource type="PackedScene" uid="uid://dexh0udn7hvpr" path="res://scenes/background.tscn" id="1_o1myd"]
 [ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="2_scxpv"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_cupwr"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_hpblh"]
@@ -9,39 +10,48 @@
 [sub_resource type="Resource" id="Resource_32rft"]
 script = ExtResource("4_hpblh")
 duration = 1.0
-transition = 0
+transition = 1
 ease = 2
 
 [node name="Main" type="Node2D"]
 
+[node name="Background" parent="." instance=ExtResource("1_o1myd")]
+
 [node name="TrainCar" parent="." instance=ExtResource("1_ilubh")]
-position = Vector2(960, 888)
+position = Vector2(960, 768)
 
 [node name="Alice" parent="." instance=ExtResource("2_scxpv")]
-position = Vector2(1496, 944)
-resting_location = Vector2(1496, 944)
+position = Vector2(1440, 808)
+resting_location = Vector2(1440, 912)
 
 [node name="Bob" parent="." instance=ExtResource("2_scxpv")]
-position = Vector2(832, 944)
+position = Vector2(720, 792)
 is_player_controlled = false
 character_name = "Bob"
-resting_location = Vector2(832, 944)
+resting_location = Vector2(720, 912)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target") groups=["camera"]]
 top_level = true
-position = Vector2(1496, 944)
+position = Vector2(1440, 540)
 script = ExtResource("3_cupwr")
 follow_mode = 5
 follow_target = NodePath("../Alice")
 tween_resource = SubResource("Resource_32rft")
+tween_on_load = false
 follow_damping = true
 follow_damping_value = Vector2(0.3, 0.3)
 dead_zone_width = 0.06
 dead_zone_height = 0.1
+draw_limits = true
+limit_bottom = 1080
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(1496, 944)
+position = Vector2(1440, 540)
+process_callback = 0
+limit_bottom = 1080
+limit_smoothed = true
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300

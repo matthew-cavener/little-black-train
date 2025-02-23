@@ -1,13 +1,9 @@
+import "res://dialogue/bob/bob_to_alice.dialogue" as bob_to_alice
+
 ~ start
-Bob: [[Hi|Hello|Howdy]], this is some dialogue.
-Bob: Here are some choices.
-- First one
-	Bob: You picked the first one.
-- Second one
-	Bob: You picked the second one.
-- Start again => start
-- Walk in their shoes
-	do parent.switch_character(parent.character_name)
-- End the conversation => END
-Bob: For more information see the online documentation.
+match player_character.character_name
+	when "Alice"
+		=>< bob_to_alice/start
+	else
+		Bob: I don't know you
 => END
