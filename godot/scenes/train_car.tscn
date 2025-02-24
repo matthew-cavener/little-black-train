@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cgnftvpu4mnm0" path="res://assets/little-black-train-images/7-roof.png" id="9_r112h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nio8v"]
-size = Vector2(1536, 64)
+size = Vector2(1808, 80)
 
 [node name="TrainCar" type="StaticBody2D"]
 script = ExtResource("1_hi3ot")
@@ -50,5 +50,5 @@ z_index = 1
 texture = ExtResource("9_r112h")
 
 [node name="FloorCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 336)
+position = Vector2(-8, 344)
 shape = SubResource("RectangleShape2D_nio8v")

@@ -1,13 +1,9 @@
 shader_type canvas_item;
 
-uniform float cutoff_threshold : hint_range(0.0, 1.0) = 0;
-uniform float brightness_value : hint_range(0.0, 10.0) = 3;
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
 void fragment() {
-    vec4 pixelColor = texture(TEXTURE, UV);
-    //float avg = (pixelColor.r + pixelColor.g + pixelColor.b) / 3.0;
-    //pixelColor.rgb = vec3(avg);
-    float brightness = (pixelColor.r + pixelColor.g + pixelColor.b) / brightness_value;
-    vec4 greyColor = vec4(brightness, brightness, brightness, pixelColor.a);
-    COLOR = greyColor;
+    vec4 color = texture(screen_texture, SCREEN_UV);
+    float grey = dot(color.rgb, vec3(0.299, 0.587, 0.114));
+    COLOR = vec4(vec3(grey), color.a);
 }

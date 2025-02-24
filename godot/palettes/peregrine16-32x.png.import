@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm2hih1cjj31b"
-path="res://.godot/imported/carriage_v18_car3.png-48e73e8a483d6da9c84f1df1c4aa54ae.ctex"
+uid="uid://swes208iqpme"
+path="res://.godot/imported/peregrine16-32x.png-db868463b9bc2c6e0210de6d46c4445e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Kooky - Pixel Train assets - v0.0.1/carriage_v18_car3.png"
-dest_files=["res://.godot/imported/carriage_v18_car3.png-48e73e8a483d6da9c84f1df1c4aa54ae.ctex"]
+source_file="res://palettes/peregrine16-32x.png"
+dest_files=["res://.godot/imported/peregrine16-32x.png-db868463b9bc2c6e0210de6d46c4445e.ctex"]
 
 [params]
 

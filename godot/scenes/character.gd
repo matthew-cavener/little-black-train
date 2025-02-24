@@ -8,8 +8,10 @@ const PLAYER_VELOCITY_MULTIPLIER = 1.5
 @export var is_player_controlled: bool = true
 @export var character_name: String = "Alice"
 @export var resting_location: Vector2 = Vector2(0, 0)
+@export var resting_direction: int = 1
 @export var traits: Array
 @export var traits_known_to_player: Array
+# @export var sprite: 
 
 @onready var actionable = $Actionable
 @onready var actionable_shape = $Actionable/ActionableShape
@@ -22,6 +24,7 @@ var is_in_dialogue: bool = false
 func _ready() -> void:
     DialogueManager.dialogue_started.connect(_on_dialogue_started)
     DialogueManager.dialogue_ended.connect(_on_dialogue_finished)
+    resting_location = position
     $Emote.modulate.a = 0
     add_to_group(character_name)
     var base_dialogue_resource = "res://dialogue/%s/%s_base.dialogue" % [character_name.to_lower(), character_name.to_lower()]
@@ -85,6 +88,8 @@ func handle_player_input() -> void:
             actionables[0].action()
     var direction := Input.get_axis("ui_left", "ui_right")
     if direction:
+        var tween = create_tween()
+        tween.tween_property($Sprite2D, "scale", Vector2(-direction, 1), 0.1)
         velocity.x = direction * SPEED * PLAYER_VELOCITY_MULTIPLIER
     else:
         velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -93,9 +98,13 @@ func return_to_resting_location() -> void:
     if abs(position.x - resting_location.x) < 3:
         position.x = resting_location.x
         velocity.x = 0
+        var tween = create_tween()
+        tween.tween_property($Sprite2D, "scale", Vector2(resting_direction, 1), 0.1)
     else:
         var direction: float = signf(resting_location.x - position.x)
         velocity.x = direction * SPEED
+        var tween = create_tween()
+        tween.tween_property($Sprite2D, "scale", Vector2(-direction, 1), 0.1)
 
 func show_emote() -> void:
     var tween = create_tween()

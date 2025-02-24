@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://po1atl8yfv8w"
-path="res://.godot/imported/carriage_v18_car1.png-78893dbb55718df1b275c313f5189d15.ctex"
+uid="uid://t0bagcqw1j6d"
+path="res://.godot/imported/sprites.png-fb32d9afba5a3d1c1ee0c2414bc3eb89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Kooky - Pixel Train assets - v0.0.1/carriage_v18_car1.png"
-dest_files=["res://.godot/imported/carriage_v18_car1.png-78893dbb55718df1b275c313f5189d15.ctex"]
+source_file="res://assets/little-black-train-images/sprites.png"
+dest_files=["res://.godot/imported/sprites.png-fb32d9afba5a3d1c1ee0c2414bc3eb89.ctex"]
 
 [params]
 
