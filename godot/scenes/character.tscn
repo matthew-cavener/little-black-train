@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwycp3rbfufe2"]
+[gd_scene load_steps=7 format=3 uid="uid://dwycp3rbfufe2"]
 
 [ext_resource type="Script" path="res://scenes/character.gd" id="1_1kv16"]
-[ext_resource type="Texture2D" uid="uid://t0bagcqw1j6d" path="res://assets/little-black-train-images/sprites.png" id="2_0gq3r"]
 [ext_resource type="PackedScene" uid="uid://blube5cir0v5s" path="res://helpers/actionable.tscn" id="3_unagc"]
 [ext_resource type="Texture2D" uid="uid://byb2fn7l11r0y" path="res://assets/kenney_emotes-pack/PNG/Vector/Style 6/emote__.png" id="4_ndlw1"]
 
@@ -21,12 +20,6 @@ height = 256.0
 collision_layer = 0
 script = ExtResource("1_1kv16")
 traits = ["helpful", "afraid of spiders"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9.53674e-07, 1.43051e-06)
-texture = ExtResource("2_0gq3r")
-region_enabled = true
-region_rect = Rect2(450, 672, 123, 182)
 
 [node name="PhysicsShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_igl8l")

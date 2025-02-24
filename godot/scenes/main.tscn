@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2pkgj3tt1uee"]
+[gd_scene load_steps=11 format=3 uid="uid://d2pkgj3tt1uee"]
 
 [ext_resource type="PackedScene" uid="uid://b510yordih2nr" path="res://scenes/train_car.tscn" id="1_ilubh"]
 [ext_resource type="PackedScene" uid="uid://dexh0udn7hvpr" path="res://scenes/background.tscn" id="1_o1myd"]
 [ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="2_scxpv"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_cupwr"]
+[ext_resource type="Texture2D" uid="uid://t0bagcqw1j6d" path="res://assets/little-black-train-images/sprites.png" id="4_025s2"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_hpblh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_s88gf"]
 [ext_resource type="Shader" path="res://shaders/greyscale.gdshader" id="7_skv7a"]
@@ -32,11 +33,24 @@ position = Vector2(2736, 540)
 position = Vector2(1400, 752)
 resting_location = Vector2(1440, 912)
 
+[node name="Sprite2D" type="Sprite2D" parent="Alice"]
+texture = ExtResource("4_025s2")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(450, 672, 123, 182)
+
 [node name="Bob" parent="." instance=ExtResource("2_scxpv")]
 position = Vector2(720, 752)
 is_player_controlled = false
 character_name = "Bob"
 resting_location = Vector2(720, 912)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bob"]
+position = Vector2(0, -11)
+texture = ExtResource("4_025s2")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(610, 677, 153, 209)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target") groups=["camera"]]
 top_level = true

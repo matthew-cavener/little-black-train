@@ -5,32 +5,40 @@ const DIALOGUE_EXIT_DELAY = 0.1
 const RESTING_LOCATION_THRESHOLD = 3.0
 const PLAYER_VELOCITY_MULTIPLIER = 1.5
 
+enum RestingDirection { LEFT = -1, RIGHT = 1 }
+
 @export var is_player_controlled: bool = true
 @export var character_name: String = "Alice"
 @export var resting_location: Vector2 = Vector2(0, 0)
-@export var resting_direction: int = 1
+@export var resting_direction: RestingDirection = RestingDirection.LEFT
 @export var traits: Array
 @export var traits_known_to_player: Array
-# @export var sprite: 
 
 @onready var actionable = $Actionable
 @onready var actionable_shape = $Actionable/ActionableShape
 @onready var actionable_finder = $ActionableFinder
 @onready var actionable_finder_shape = $ActionableFinder/ActionableFinderShape
+@onready var emote = $Emote
 @onready var camera = get_tree().get_first_node_in_group("camera")
 
 var is_in_dialogue: bool = false
+var tilt_timer: float = 0.5
+const TILT_FREQUENCY: float = 5  # Adjust this value to control the frequency of the tilt
+const TILT_AMPLITUDE: float = 0.2  # Adjust this value to control the amplitude of the tilt
+var tilt_direction: int = 1
 
 func _ready() -> void:
     DialogueManager.dialogue_started.connect(_on_dialogue_started)
     DialogueManager.dialogue_ended.connect(_on_dialogue_finished)
     resting_location = position
-    $Emote.modulate.a = 0
+    emote.modulate.a = 0
     add_to_group(character_name)
     var base_dialogue_resource = "res://dialogue/%s/%s_base.dialogue" % [character_name.to_lower(), character_name.to_lower()]
     actionable.dialogue_resource = load(base_dialogue_resource)
+    return_to_resting_location()
     if is_player_controlled:
         add_to_group("player")
+        z_index = 1
         actionable_shape.set_deferred("disabled", true)
         actionable_finder_shape.set_deferred("disabled", false)
     else:
@@ -45,6 +53,17 @@ func _physics_process(delta: float) -> void:
     elif not is_player_controlled and not is_in_dialogue:
         return_to_resting_location()
     move_and_slide()
+    update_sprite_tilt(delta)
+
+func update_sprite_tilt(delta: float) -> void:
+    if velocity.x != 0:
+        tilt_timer += delta * TILT_FREQUENCY
+        if tilt_timer >= 1.0:
+            tilt_timer = 0.0
+            tilt_direction *= -1
+        $Sprite2D.rotation = tilt_direction * TILT_AMPLITUDE
+    else:
+        $Sprite2D.rotation = 0.0
 
 func _on_dialogue_started(_resource) -> void:
     is_in_dialogue = true
@@ -74,6 +93,7 @@ func switch_character(new_character_name: String) -> void:
     current_character.actionable_finder_shape.set_deferred("disabled", true)
 
     new_character.is_player_controlled = true
+    z_index = 1
     new_character.add_to_group("player")
     new_character.actionable_shape.set_deferred("disabled", true)
     new_character.actionable_finder_shape.set_deferred("disabled", false)
@@ -89,7 +109,7 @@ func handle_player_input() -> void:
     var direction := Input.get_axis("ui_left", "ui_right")
     if direction:
         var tween = create_tween()
-        tween.tween_property($Sprite2D, "scale", Vector2(-direction, 1), 0.1)
+        tween.tween_property($Sprite2D, "scale", Vector2(direction, 1), 0.1)
         velocity.x = direction * SPEED * PLAYER_VELOCITY_MULTIPLIER
     else:
         velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -98,23 +118,24 @@ func return_to_resting_location() -> void:
     if abs(position.x - resting_location.x) < 3:
         position.x = resting_location.x
         velocity.x = 0
+        z_index = 0
         var tween = create_tween()
         tween.tween_property($Sprite2D, "scale", Vector2(resting_direction, 1), 0.1)
     else:
         var direction: float = signf(resting_location.x - position.x)
         velocity.x = direction * SPEED
         var tween = create_tween()
-        tween.tween_property($Sprite2D, "scale", Vector2(-direction, 1), 0.1)
+        tween.tween_property($Sprite2D, "scale", Vector2(direction, 1), 0.1)
 
 func show_emote() -> void:
     var tween = create_tween()
-    tween.tween_property($Emote, "modulate:a", 1, 0.1)
-    tween.tween_property($Emote, "scale", Vector2(1.5, 1.5), 0.1)
-    tween.tween_property($Emote, "scale", Vector2(1, 1), 0.5)
+    tween.tween_property(emote, "modulate:a", 1, 0.1)
+    tween.tween_property(emote, "scale", Vector2(1.5, 1.5), 0.1)
+    tween.tween_property(emote, "scale", Vector2(1, 1), 0.5)
 
 func hide_emote() -> void:
     var tween = create_tween()
-    tween.tween_property($Emote, "modulate:a", 0, 0.5)
+    tween.tween_property(emote, "modulate:a", 0, 0.5)
 
 func _on_actionable_finder_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
     if area.has_method("action"):
