@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdvjlngw7071u"]
+
+[ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="1_ggmlh"]
+[ext_resource type="Texture2D" uid="uid://t0bagcqw1j6d" path="res://assets/little-black-train-images/sprites.png" id="2_mpp5d"]
+[ext_resource type="Texture2D" uid="uid://byb2fn7l11r0y" path="res://assets/kenney_emotes-pack/PNG/Vector/Style 6/emote__.png" id="2_wvxpk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gk3q0"]
+radius = 72.0
+height = 176.0
+
+[node name="YoungGranny" type="Node2D"]
+
+[node name="YoungGrannyCharacter" parent="." instance=ExtResource("1_ggmlh")]
+character_name = "Young Granny"
+
+[node name="PhysicsShape" type="CollisionShape2D" parent="YoungGrannyCharacter"]
+shape = SubResource("CapsuleShape2D_gk3q0")
+
+[node name="Emote" type="Sprite2D" parent="YoungGrannyCharacter"]
+position = Vector2(0, -115)
+texture = ExtResource("2_wvxpk")
+
+[node name="CharacterSprite" type="Sprite2D" parent="YoungGrannyCharacter"]
+texture = ExtResource("2_mpp5d")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(450, 672, 123, 182)

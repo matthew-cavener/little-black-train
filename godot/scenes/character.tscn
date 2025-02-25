@@ -1,12 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwycp3rbfufe2"]
+[gd_scene load_steps=5 format=3 uid="uid://dwycp3rbfufe2"]
 
 [ext_resource type="Script" path="res://scenes/character.gd" id="1_1kv16"]
 [ext_resource type="PackedScene" uid="uid://blube5cir0v5s" path="res://helpers/actionable.tscn" id="3_unagc"]
-[ext_resource type="Texture2D" uid="uid://byb2fn7l11r0y" path="res://assets/kenney_emotes-pack/PNG/Vector/Style 6/emote__.png" id="4_ndlw1"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_igl8l"]
-radius = 32.0
-height = 176.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yu18l"]
 radius = 128.0
@@ -21,9 +16,6 @@ collision_layer = 0
 script = ExtResource("1_1kv16")
 traits = ["helpful", "afraid of spiders"]
 
-[node name="PhysicsShape" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_igl8l")
-
 [node name="Actionable" parent="." instance=ExtResource("3_unagc")]
 
 [node name="ActionableShape" type="CollisionShape2D" parent="Actionable"]
@@ -35,10 +27,6 @@ collision_mask = 32
 
 [node name="ActionableFinderShape" type="CollisionShape2D" parent="ActionableFinder"]
 shape = SubResource("CapsuleShape2D_tfu4v")
-
-[node name="Emote" type="Sprite2D" parent="."]
-position = Vector2(0, -112)
-texture = ExtResource("4_ndlw1")
 
 [connection signal="area_shape_entered" from="ActionableFinder" to="." method="_on_actionable_finder_area_shape_entered"]
 [connection signal="area_shape_exited" from="ActionableFinder" to="." method="_on_actionable_finder_area_shape_exited"]

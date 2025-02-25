@@ -7,7 +7,7 @@ const PLAYER_VELOCITY_MULTIPLIER = 1.5
 
 enum RestingDirection { LEFT = -1, RIGHT = 1 }
 
-@export var is_player_controlled: bool = true
+@export var is_player_controlled: bool = false
 @export var character_name: String = "Alice"
 @export var resting_location: Vector2 = Vector2(0, 0)
 @export var resting_direction: RestingDirection = RestingDirection.LEFT
@@ -19,6 +19,7 @@ enum RestingDirection { LEFT = -1, RIGHT = 1 }
 @onready var actionable_finder = $ActionableFinder
 @onready var actionable_finder_shape = $ActionableFinder/ActionableFinderShape
 @onready var emote = $Emote
+@onready var character_sprite = $CharacterSprite
 @onready var camera = get_tree().get_first_node_in_group("camera")
 
 var is_in_dialogue: bool = false
@@ -33,12 +34,13 @@ func _ready() -> void:
     resting_location = position
     emote.modulate.a = 0
     add_to_group(character_name)
-    var base_dialogue_resource = "res://dialogue/%s/%s_base.dialogue" % [character_name.to_lower(), character_name.to_lower()]
+    var base_dialogue_resource = "res://dialogue/%s/%s_base.dialogue" % [character_name.to_lower().replace(" ", "_"), character_name.to_lower().replace(" ", "_")]
     actionable.dialogue_resource = load(base_dialogue_resource)
     return_to_resting_location()
     if is_player_controlled:
         add_to_group("player")
         z_index = 1
+        camera.follow_target = self
         actionable_shape.set_deferred("disabled", true)
         actionable_finder_shape.set_deferred("disabled", false)
     else:
@@ -61,9 +63,9 @@ func update_sprite_tilt(delta: float) -> void:
         if tilt_timer >= 1.0:
             tilt_timer = 0.0
             tilt_direction *= -1
-        $Sprite2D.rotation = tilt_direction * TILT_AMPLITUDE
+        character_sprite.rotation = tilt_direction * TILT_AMPLITUDE
     else:
-        $Sprite2D.rotation = 0.0
+        character_sprite.rotation = 0.0
 
 func _on_dialogue_started(_resource) -> void:
     is_in_dialogue = true
@@ -109,7 +111,7 @@ func handle_player_input() -> void:
     var direction := Input.get_axis("ui_left", "ui_right")
     if direction:
         var tween = create_tween()
-        tween.tween_property($Sprite2D, "scale", Vector2(direction, 1), 0.1)
+        tween.tween_property(character_sprite, "scale", Vector2(direction, 1), 0.1)
         velocity.x = direction * SPEED * PLAYER_VELOCITY_MULTIPLIER
     else:
         velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -120,12 +122,12 @@ func return_to_resting_location() -> void:
         velocity.x = 0
         z_index = 0
         var tween = create_tween()
-        tween.tween_property($Sprite2D, "scale", Vector2(resting_direction, 1), 0.1)
+        tween.tween_property(character_sprite, "scale", Vector2(resting_direction, 1), 0.1)
     else:
         var direction: float = signf(resting_location.x - position.x)
         velocity.x = direction * SPEED
         var tween = create_tween()
-        tween.tween_property($Sprite2D, "scale", Vector2(direction, 1), 0.1)
+        tween.tween_property(character_sprite, "scale", Vector2(direction, 1), 0.1)
 
 func show_emote() -> void:
     var tween = create_tween()
