@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cfl55f70paj1d"
+path="res://.godot/imported/alice_to_topher.dialogue-25bed16dc2877af0522cf2f6899be53c.tres"
+
+[deps]
+
+source_file="res://dialogue/alice/alice_to_topher.dialogue"
+dest_files=["res://.godot/imported/alice_to_topher.dialogue-25bed16dc2877af0522cf2f6899be53c.tres"]
+
+[params]
+
+defaults=true

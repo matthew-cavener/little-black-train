@@ -1,0 +1,13 @@
+~ start
+Topher: [[Hi|Hello|Howdy]], this is some dialogue.
+Topher: Here are some choices.
+- First one
+	Topher: You picked the first one.
+- Second one
+	Topher: You picked the second one.
+- Start again => start
+- Walk in their shoes
+	do parent.switch_character(parent.character_name)
+- End the conversation => END
+Topher: For more information see the online documentation.
+=> END

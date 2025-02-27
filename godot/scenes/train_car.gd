@@ -13,7 +13,11 @@ func _process(delta: float) -> void:
 func _on_dialogue_started(_resource) -> void:
     var tween = create_tween()
     tween.tween_property($Exterior, "modulate:a", 0, 1)
+    tween.tween_property($Nameplate, "modulate:a", 0, .5)
+    tween.tween_property($Roof, "modulate:a", 0, .5)
 
 func _on_dialogue_finished(_resource) -> void:
     var tween = create_tween()
     tween.tween_property($Exterior, "modulate:a", 1, 1)
+    tween.tween_property($Nameplate, "modulate:a", 1, .5)
+    tween.tween_property($Roof, "modulate:a", 1, .5)

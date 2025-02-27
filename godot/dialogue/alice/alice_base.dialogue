@@ -1,13 +1,9 @@
+import "res://dialogue/alice/alice_to_topher.dialogue" as alice_to_topher
+
 ~ start
-Alice: [[Hi|Hello|Howdy]], this is some dialogue.
-Alice: Here are some choices.
-- First one
-	Alice: You picked the first one.
-- Second one
-	Alice: You picked the second one.
-- Start again => start
-- Walk in their shoes
-	do parent.switch_character(parent.character_name)
-- End the conversation => END
-Alice: For more information see the online documentation.
+match player_character.character_name
+	when "Topher"
+		=>< alice_to_topher/start
+	else
+		Alice: I don't know you
 => END

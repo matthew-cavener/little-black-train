@@ -32,21 +32,23 @@ texture = ExtResource("3_xl340")
 texture = ExtResource("4_mte3m")
 
 [node name="TableLeft" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("5_266fn")
 
 [node name="TableRight" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("6_tngrh")
 
 [node name="Exterior" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture = ExtResource("7_pgnhp")
 
 [node name="Nameplate" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture = ExtResource("8_nsck4")
 
 [node name="Roof" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture = ExtResource("9_r112h")
 
 [node name="FloorCollision" type="CollisionShape2D" parent="."]

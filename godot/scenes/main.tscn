@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2pkgj3tt1uee"]
+[gd_scene load_steps=11 format=3 uid="uid://d2pkgj3tt1uee"]
 
 [ext_resource type="PackedScene" uid="uid://b510yordih2nr" path="res://scenes/train_car.tscn" id="1_ilubh"]
 [ext_resource type="PackedScene" uid="uid://dexh0udn7hvpr" path="res://scenes/background.tscn" id="1_o1myd"]
-[ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="2_scxpv"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_cupwr"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_hpblh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_s88gf"]
 [ext_resource type="Shader" path="res://shaders/greyscale.gdshader" id="7_skv7a"]
+[ext_resource type="PackedScene" uid="uid://cog63fm50ga5b" path="res://characters/conductor.tscn" id="7_w8plg"]
+[ext_resource type="PackedScene" uid="uid://cdvjlngw7071u" path="res://characters/young_granny.tscn" id="8_1ixc8"]
 
 [sub_resource type="Resource" id="Resource_32rft"]
 script = ExtResource("4_hpblh")
@@ -23,27 +24,17 @@ shader = ExtResource("7_skv7a")
 z_index = -10
 
 [node name="TrainCar" parent="." instance=ExtResource("1_ilubh")]
-position = Vector2(960, 540)
+position = Vector2(960, 544)
 
 [node name="TrainCar2" parent="." instance=ExtResource("1_ilubh")]
-position = Vector2(2736, 540)
-
-[node name="Alice" parent="." instance=ExtResource("2_scxpv")]
-position = Vector2(1400, 752)
-resting_location = Vector2(1440, 912)
-
-[node name="Bob" parent="." instance=ExtResource("2_scxpv")]
-position = Vector2(720, 752)
-is_player_controlled = false
-character_name = "Bob"
-resting_location = Vector2(720, 912)
+position = Vector2(2736, 544)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target") groups=["camera"]]
 top_level = true
-position = Vector2(1400, 540)
+position = Vector2(222, 540)
 script = ExtResource("3_cupwr")
 follow_mode = 5
-follow_target = NodePath("../Alice")
+follow_target = NodePath("../TheConductor")
 tween_resource = SubResource("Resource_32rft")
 tween_on_load = false
 follow_damping = true
@@ -54,9 +45,7 @@ draw_limits = true
 limit_bottom = 1080
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
-position = Vector2(1400, 540)
-process_callback = 0
+position = Vector2(222, 540)
 limit_bottom = 1080
 limit_smoothed = true
 editor_draw_limits = true
@@ -66,13 +55,21 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("5_s88gf")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+[node name="ShaderLayer" type="CanvasLayer" parent="Camera2D"]
 
-[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+[node name="ShaderColorRect" type="ColorRect" parent="Camera2D/ShaderLayer"]
 z_index = 1
 material = SubResource("ShaderMaterial_qmyb0")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="YoungGranny" parent="." instance=ExtResource("8_1ixc8")]
+position = Vector2(1407, 759)
+
+[node name="TheConductor" parent="." instance=ExtResource("7_w8plg")]
+position = Vector2(222, 744)

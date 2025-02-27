@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ir3wpsdits3f"]
+
+[ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="1_ykomi"]
+[ext_resource type="Texture2D" uid="uid://byb2fn7l11r0y" path="res://assets/kenney_emotes-pack/PNG/Vector/Style 6/emote__.png" id="2_nk40q"]
+[ext_resource type="Texture2D" uid="uid://t0bagcqw1j6d" path="res://assets/little-black-train-images/sprites.png" id="3_gntcn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dacij"]
+radius = 56.0
+height = 224.0
+
+[node name="Banker" type="Node2D"]
+
+[node name="Banker" parent="." instance=ExtResource("1_ykomi")]
+character_name = "Mr. Jones"
+
+[node name="PhysicsShape" type="CollisionShape2D" parent="Banker"]
+shape = SubResource("CapsuleShape2D_dacij")
+
+[node name="Emote" type="Sprite2D" parent="Banker"]
+position = Vector2(0, -139)
+texture = ExtResource("2_nk40q")
+
+[node name="CharacterSprite" type="Sprite2D" parent="Banker"]
+texture = ExtResource("3_gntcn")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(846, 660, 118, 222)

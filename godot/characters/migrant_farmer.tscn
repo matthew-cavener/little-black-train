@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfslsfwsrsvlh"]
+
+[ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="1_v30kx"]
+[ext_resource type="Texture2D" uid="uid://byb2fn7l11r0y" path="res://assets/kenney_emotes-pack/PNG/Vector/Style 6/emote__.png" id="2_vwtd0"]
+[ext_resource type="Texture2D" uid="uid://t0bagcqw1j6d" path="res://assets/little-black-train-images/sprites.png" id="3_dcrod"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qq247"]
+radius = 48.0
+height = 224.0
+
+[node name="MigrantFarmer" type="Node2D"]
+
+[node name="MigrantFarmerCharacter" parent="." instance=ExtResource("1_v30kx")]
+character_name = "Tom"
+
+[node name="PhysicsShape" type="CollisionShape2D" parent="MigrantFarmerCharacter"]
+shape = SubResource("CapsuleShape2D_qq247")
+
+[node name="Emote" type="Sprite2D" parent="MigrantFarmerCharacter"]
+position = Vector2(0, -131)
+texture = ExtResource("2_vwtd0")
+
+[node name="CharacterSprite" type="Sprite2D" parent="MigrantFarmerCharacter"]
+texture = ExtResource("3_dcrod")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1327, 643, 145, 227)
