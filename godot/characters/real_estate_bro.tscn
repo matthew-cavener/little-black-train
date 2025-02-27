@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwanx11cpxiem"]
+
+[ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="1_wcolo"]
+[ext_resource type="Texture2D" uid="uid://byb2fn7l11r0y" path="res://assets/kenney_emotes-pack/PNG/Vector/Style 6/emote__.png" id="2_v4wiu"]
+[ext_resource type="Texture2D" uid="uid://t0bagcqw1j6d" path="res://assets/little-black-train-images/sprites.png" id="3_vgiy8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4htf"]
+radius = 48.0
+height = 208.0
+
+[node name="RealEstateBro" type="Node2D"]
+
+[node name="RealEstateBroCharacter" parent="." instance=ExtResource("1_wcolo")]
+character_name = "Charles"
+
+[node name="PhysicsShape" type="CollisionShape2D" parent="RealEstateBroCharacter"]
+shape = SubResource("CapsuleShape2D_r4htf")
+
+[node name="Emote" type="Sprite2D" parent="RealEstateBroCharacter"]
+position = Vector2(0, -131)
+texture = ExtResource("2_v4wiu")
+
+[node name="CharacterSprite" type="Sprite2D" parent="RealEstateBroCharacter"]
+texture = ExtResource("3_vgiy8")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1009, 670, 115, 208)

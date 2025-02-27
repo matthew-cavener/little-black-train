@@ -5,13 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://byb2fn7l11r0y" path="res://assets/kenney_emotes-pack/PNG/Vector/Style 6/emote__.png" id="2_wvxpk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gk3q0"]
-radius = 72.0
+radius = 56.0
 height = 176.0
 
 [node name="YoungGranny" type="Node2D"]
 
 [node name="YoungGrannyCharacter" parent="." instance=ExtResource("1_ggmlh")]
-character_name = "Young Granny"
 
 [node name="PhysicsShape" type="CollisionShape2D" parent="YoungGrannyCharacter"]
 shape = SubResource("CapsuleShape2D_gk3q0")

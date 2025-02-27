@@ -1,9 +1,0 @@
-import "res://dialogue/bob/bob_to_alice.dialogue" as bob_to_alice
-
-~ start
-match player_character.character_name
-	when "Alice"
-		=>< bob_to_alice/start
-	else
-		Bob: I don't know you
-=> END

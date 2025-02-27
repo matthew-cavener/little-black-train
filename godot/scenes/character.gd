@@ -23,10 +23,18 @@ enum RestingDirection { LEFT = -1, RIGHT = 1 }
 @onready var camera = get_tree().get_first_node_in_group("camera")
 
 var is_in_dialogue: bool = false
-var tilt_timer: float = 0.5
-const TILT_FREQUENCY: float = 5  # Adjust this value to control the frequency of the tilt
-const TILT_AMPLITUDE: float = 0.2  # Adjust this value to control the amplitude of the tilt
+var tilt_timer: float = 0.0
+const TILT_FREQUENCY: float = 5
+const TILT_AMPLITUDE: float = 0.2
 var tilt_direction: int = 1
+
+# Character names:
+    # Granny: Ms. Liddell
+    # Young Granny: Alice
+    # Counductor: Christopher "Topher"
+    # R.E. Bro: Carlos "Charles"
+    # Banker: Mr. Jones
+    # Migrant Farmer: Tom
 
 func _ready() -> void:
     DialogueManager.dialogue_started.connect(_on_dialogue_started)
@@ -34,7 +42,10 @@ func _ready() -> void:
     resting_location = position
     emote.modulate.a = 0
     add_to_group(character_name)
-    var base_dialogue_resource = "res://dialogue/%s/%s_base.dialogue" % [character_name.to_lower().replace(" ", "_"), character_name.to_lower().replace(" ", "_")]
+    var base_dialogue_resource = "res://dialogue/%s/%s_base.dialogue" % [
+        character_name.to_lower().replace(" ", "_").replace(".",""),
+        character_name.to_lower().replace(" ", "_").replace(".","")
+    ]
     actionable.dialogue_resource = load(base_dialogue_resource)
     return_to_resting_location()
     if is_player_controlled:

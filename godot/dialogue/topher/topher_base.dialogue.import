@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cce0bw135npo0"
+path="res://.godot/imported/topher_base.dialogue-4b3199d921735fb98ee88c6c889d0e0a.tres"
+
+[deps]
+
+source_file="res://dialogue/topher/topher_base.dialogue"
+dest_files=["res://.godot/imported/topher_base.dialogue-4b3199d921735fb98ee88c6c889d0e0a.tres"]
+
+[params]
+
+defaults=true

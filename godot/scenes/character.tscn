@@ -14,7 +14,6 @@ height = 256.0
 [node name="Character" type="CharacterBody2D" groups=["character"]]
 collision_layer = 0
 script = ExtResource("1_1kv16")
-traits = ["helpful", "afraid of spiders"]
 
 [node name="Actionable" parent="." instance=ExtResource("3_unagc")]
 

@@ -39,7 +39,7 @@ player=""
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/bob/bob_base.dialogue", "res://dialogue/alice/alice_base.dialogue", "res://dialogue/bob/bob_to_alice.dialogue", "res://dialogue/young_granny/young_granny_base.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/topher/topher_base.dialogue", "res://dialogue/alice/alice_to_topher.dialogue", "res://dialogue/topher/topher_to_alice.dialogue", "res://dialogue/alice/alice_base.dialogue")
 
 [layer_names]
 

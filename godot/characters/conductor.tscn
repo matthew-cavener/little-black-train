@@ -8,20 +8,20 @@
 radius = 72.0
 height = 208.0
 
-[node name="TheConductor" type="Node2D"]
+[node name="Conductor" type="Node2D"]
 
-[node name="TheConductorCharacter" parent="." groups=["player"] instance=ExtResource("1_dk41c")]
+[node name="ConductorCharacter" parent="." groups=["player"] instance=ExtResource("1_dk41c")]
 is_player_controlled = true
-character_name = "The Conductor"
+character_name = "Topher"
 
-[node name="PhysicsShape" type="CollisionShape2D" parent="TheConductorCharacter"]
+[node name="PhysicsShape" type="CollisionShape2D" parent="ConductorCharacter"]
 shape = SubResource("CapsuleShape2D_68bfi")
 
-[node name="Emote" type="Sprite2D" parent="TheConductorCharacter"]
+[node name="Emote" type="Sprite2D" parent="ConductorCharacter"]
 position = Vector2(0, -128)
 texture = ExtResource("2_idmpk")
 
-[node name="CharacterSprite" type="Sprite2D" parent="TheConductorCharacter"]
+[node name="CharacterSprite" type="Sprite2D" parent="ConductorCharacter"]
 texture = ExtResource("3_v1t85")
 flip_h = true
 region_enabled = true
