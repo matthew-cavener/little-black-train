@@ -1,7 +1,7 @@
 import "res://dialogue/topher/topher_to_alice.dialogue" as topher_to_alice
 
 ~ start
-match player_character.character_name
+match character_spoken_to.character_name
 	when "Alice"
 		=>< topher_to_alice/start
 	else

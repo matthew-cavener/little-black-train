@@ -4,6 +4,8 @@ const SPEED = 300.0
 const DIALOGUE_EXIT_DELAY = 0.1
 const RESTING_LOCATION_THRESHOLD = 3.0
 const PLAYER_VELOCITY_MULTIPLIER = 1.5
+const TILT_FREQUENCY: float = 5
+const TILT_AMPLITUDE: float = 0.2
 
 enum RestingDirection { LEFT = -1, RIGHT = 1 }
 
@@ -18,14 +20,13 @@ enum RestingDirection { LEFT = -1, RIGHT = 1 }
 @onready var actionable_shape = $Actionable/ActionableShape
 @onready var actionable_finder = $ActionableFinder
 @onready var actionable_finder_shape = $ActionableFinder/ActionableFinderShape
-@onready var emote = $Emote
-@onready var character_sprite = $CharacterSprite
 @onready var camera = get_tree().get_first_node_in_group("camera")
+@onready var character_sprite = $CharacterSprite
+@onready var emote = $Emote
 
+var is_in_dialogue_range: bool = false
 var is_in_dialogue: bool = false
 var tilt_timer: float = 0.0
-const TILT_FREQUENCY: float = 5
-const TILT_AMPLITUDE: float = 0.2
 var tilt_direction: int = 1
 
 # Character names:
@@ -52,11 +53,11 @@ func _ready() -> void:
         add_to_group("player")
         z_index = 1
         camera.follow_target = self
-        actionable_shape.set_deferred("disabled", true)
-        actionable_finder_shape.set_deferred("disabled", false)
-    else:
         actionable_shape.set_deferred("disabled", false)
         actionable_finder_shape.set_deferred("disabled", true)
+    else:
+        actionable_shape.set_deferred("disabled", true)
+        actionable_finder_shape.set_deferred("disabled", false)
 
 func _physics_process(delta: float) -> void:
     if not is_on_floor():
@@ -102,23 +103,24 @@ func switch_character(new_character_name: String) -> void:
         return
     current_character.is_player_controlled = false
     current_character.remove_from_group("player")
-    current_character.actionable_shape.set_deferred("disabled", false)
-    current_character.actionable_finder_shape.set_deferred("disabled", true)
+    current_character.actionable_shape.set_deferred("disabled", true)
+    current_character.actionable_finder_shape.set_deferred("disabled", false)
 
     new_character.is_player_controlled = true
     z_index = 1
     new_character.add_to_group("player")
-    new_character.actionable_shape.set_deferred("disabled", true)
-    new_character.actionable_finder_shape.set_deferred("disabled", false)
+    new_character.actionable_shape.set_deferred("disabled", false)
+    new_character.actionable_finder_shape.set_deferred("disabled", true)
 
     camera.follow_target = new_character
 
 func handle_player_input() -> void:
     if Input.is_action_just_pressed("ui_accept"):
-        var actionables = actionable_finder.get_overlapping_areas()
+        var actionables = actionable.get_overlapping_areas()
         if actionables.size() > 0:
-            actionables[0].parent.velocity = Vector2(0, 0)
-            actionables[0].action()
+            var character_spoken_to = actionables[0].get_parent()
+            actionables[0].get_parent().velocity = Vector2(0, 0)
+            actionable.action(character_spoken_to)
     var direction := Input.get_axis("ui_left", "ui_right")
     if direction:
         var tween = create_tween()
@@ -150,10 +152,10 @@ func hide_emote() -> void:
     var tween = create_tween()
     tween.tween_property(emote, "modulate:a", 0, 0.5)
 
-func _on_actionable_finder_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-    if area.has_method("action"):
+func _on_actionable_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+    if area.get_parent().has_method("show_emote"):
         area.get_parent().show_emote()
 
-func _on_actionable_finder_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-    if area.has_method("action"):
+func _on_actionable_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+    if area.get_parent().has_method("hide_emote"):
         area.get_parent().hide_emote()

@@ -16,16 +16,20 @@ collision_layer = 0
 script = ExtResource("1_1kv16")
 
 [node name="Actionable" parent="." instance=ExtResource("3_unagc")]
+collision_layer = 0
+collision_mask = 32
 
 [node name="ActionableShape" type="CollisionShape2D" parent="Actionable"]
 shape = SubResource("CapsuleShape2D_yu18l")
 
 [node name="ActionableFinder" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 32
+collision_layer = 32
+collision_mask = 0
 
 [node name="ActionableFinderShape" type="CollisionShape2D" parent="ActionableFinder"]
 shape = SubResource("CapsuleShape2D_tfu4v")
 
+[connection signal="area_shape_entered" from="Actionable" to="." method="_on_actionable_area_shape_entered"]
+[connection signal="area_shape_exited" from="Actionable" to="." method="_on_actionable_area_shape_exited"]
 [connection signal="area_shape_entered" from="ActionableFinder" to="." method="_on_actionable_finder_area_shape_entered"]
 [connection signal="area_shape_exited" from="ActionableFinder" to="." method="_on_actionable_finder_area_shape_exited"]
