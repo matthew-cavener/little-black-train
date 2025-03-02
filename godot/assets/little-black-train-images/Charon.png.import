@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpniwa2iohcjy"
-path="res://.godot/imported/4-shade1.png-37c190143ff0077e9b61b0d4bc527f08.ctex"
+uid="uid://bfmoijm2jusws"
+path="res://.godot/imported/Charon.png-65a6fc41d4bd1632973f6a0d99a0a080.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/little-black-train-images/4-shade1.png"
-dest_files=["res://.godot/imported/4-shade1.png-37c190143ff0077e9b61b0d4bc527f08.ctex"]
+source_file="res://assets/little-black-train-images/Charon.png"
+dest_files=["res://.godot/imported/Charon.png-65a6fc41d4bd1632973f6a0d99a0a080.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bregs7gagxn0r"
-path="res://.godot/imported/4-shade2.png-3611e81ddad8dc0ebaf46b340c3e9c1b.ctex"
+uid="uid://k2fofbdt4q5p"
+path="res://.godot/imported/kaboose.png-1a3248df70009f6f455f012b639e4933.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/little-black-train-images/4-shade2.png"
-dest_files=["res://.godot/imported/4-shade2.png-3611e81ddad8dc0ebaf46b340c3e9c1b.ctex"]
+source_file="res://assets/little-black-train-images/car/kaboose.png"
+dest_files=["res://.godot/imported/kaboose.png-1a3248df70009f6f455f012b639e4933.ctex"]
 
 [params]
 

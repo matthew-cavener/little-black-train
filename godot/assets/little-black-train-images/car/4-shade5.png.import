@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2skvurxd3fgs"
-path="res://.godot/imported/2-undercarriage.png-a54b32d723f3dc45995a0b0d2b15abe5.ctex"
+uid="uid://bn8hw6q3wam6w"
+path="res://.godot/imported/4-shade5.png-666f6c2470fc3c819a88d7ac9d4de7ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/little-black-train-images/2-undercarriage.png"
-dest_files=["res://.godot/imported/2-undercarriage.png-a54b32d723f3dc45995a0b0d2b15abe5.ctex"]
+source_file="res://assets/little-black-train-images/car/4-shade5.png"
+dest_files=["res://.godot/imported/4-shade5.png-666f6c2470fc3c819a88d7ac9d4de7ef.ctex"]
 
 [params]
 

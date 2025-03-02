@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dywdrrocvbimk"]
+
+[ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="1_utpbt"]
+[ext_resource type="Texture2D" uid="uid://b0p6dxwh30csq" path="res://assets/little-black-train-images/engine/wheels and bell.png" id="2_2mho6"]
+[ext_resource type="Texture2D" uid="uid://bfmoijm2jusws" path="res://assets/little-black-train-images/Charon.png" id="3_nfvsm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_so5vs"]
+radius = 56.0
+height = 208.0
+
+[node name="Engineer" type="Node2D"]
+
+[node name="Engineer" parent="." instance=ExtResource("1_utpbt")]
+character_name = "Charon"
+resting_direction = 1
+
+[node name="PhysicsShape" type="CollisionShape2D" parent="Engineer"]
+shape = SubResource("CapsuleShape2D_so5vs")
+
+[node name="Emote" type="Sprite2D" parent="Engineer"]
+position = Vector2(-11, -136)
+scale = Vector2(0.609375, 0.580386)
+texture = ExtResource("2_2mho6")
+region_enabled = true
+region_rect = Rect2(1242, 379, 64, 73)
+
+[node name="CharacterSprite" type="Sprite2D" parent="Engineer"]
+texture = ExtResource("3_nfvsm")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(861, 518, 98, 204)
