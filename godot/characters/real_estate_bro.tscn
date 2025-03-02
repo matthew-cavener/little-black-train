@@ -12,6 +12,7 @@ height = 208.0
 
 [node name="RealEstateBroCharacter" parent="." instance=ExtResource("1_wcolo")]
 character_name = "Charles"
+resting_direction = 1
 
 [node name="PhysicsShape" type="CollisionShape2D" parent="RealEstateBroCharacter"]
 shape = SubResource("CapsuleShape2D_r4htf")
