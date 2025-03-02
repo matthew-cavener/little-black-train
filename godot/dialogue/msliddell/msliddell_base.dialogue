@@ -1,21 +1,24 @@
-import "res://dialogue/alice/alice_to_msliddell.dialogue" as alice_to_msliddell
-import "res://dialogue/tom/tom_to_msliddell.dialogue" as tom_to_msliddell
-import "res://dialogue/topher/topher_to_msliddell.dialogue" as topher_to_msliddell
-import "res://dialogue/mrjones/mrjones_to_msliddell.dialogue" as mrjones_to_msliddell
-import "res://dialogue/charles/charles_to_msliddell.dialogue" as charles_to_msliddell
+import "res://dialogue/msliddell/msliddell_to_alice.dialogue" as msliddell_to_alice
+import "res://dialogue/msliddell/msliddell_to_tom.dialogue" as msliddell_to_tom
+import "res://dialogue/msliddell/msliddell_to_topher.dialogue" as msliddell_to_topher
+import "res://dialogue/msliddell/msliddell_to_mrjones.dialogue" as msliddell_to_mrjones
+import "res://dialogue/msliddell/msliddell_to_charles.dialogue" as msliddell_to_charles
+import "res://dialogue/msliddell/msliddell_to_charon.dialogue" as msliddell_to_charon
 
 ~ start
 match player_character.character_name
 	when "Alice"
-		=>< alice_to_msliddell/start
+		=>< msliddell_to_alice/start
 	when "Tom"
-		=>< tom_to_msliddell/start
+		=>< msliddell_to_tom/start
 	when "Topher"
-		=>< topher_to_msliddell/start
+		=>< msliddell_to_topher/start
 	when "Mr. Jones"
-		=>< mrjones_to_msliddell/start
+		=>< msliddell_to_mrjones/start
 	when "Charles"
-		=>< charles_to_msliddell/start
+		=>< msliddell_to_charles/start
+	when "Charon"
+		=>< msliddell_to_charon/start
 	else
 		Ms. Liddell: I don't know you
 => END
