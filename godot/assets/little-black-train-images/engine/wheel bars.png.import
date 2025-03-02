@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwael8j0egt"
-path="res://.godot/imported/4-shade4.png-3f80e3a28f59da945f9bcf7fcee705a8.ctex"
+uid="uid://b3xjcl17efqij"
+path="res://.godot/imported/wheel bars.png-255d8de8fa30cb82d3a5b9547002475e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/little-black-train-images/4-shade4.png"
-dest_files=["res://.godot/imported/4-shade4.png-3f80e3a28f59da945f9bcf7fcee705a8.ctex"]
+source_file="res://assets/little-black-train-images/engine/wheel bars.png"
+dest_files=["res://.godot/imported/wheel bars.png-255d8de8fa30cb82d3a5b9547002475e.ctex"]
 
 [params]
 

@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2pkgj3tt1uee"]
+[gd_scene load_steps=14 format=3 uid="uid://d2pkgj3tt1uee"]
 
 [ext_resource type="PackedScene" uid="uid://b510yordih2nr" path="res://scenes/train_car.tscn" id="1_ilubh"]
 [ext_resource type="PackedScene" uid="uid://dexh0udn7hvpr" path="res://scenes/background.tscn" id="1_o1myd"]
+[ext_resource type="Texture2D" uid="uid://k2fofbdt4q5p" path="res://assets/little-black-train-images/car/kaboose.png" id="3_3ot26"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_cupwr"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_hpblh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_s88gf"]
 [ext_resource type="Shader" path="res://shaders/greyscale.gdshader" id="7_skv7a"]
 [ext_resource type="PackedScene" uid="uid://cog63fm50ga5b" path="res://characters/conductor.tscn" id="7_w8plg"]
 [ext_resource type="PackedScene" uid="uid://cdvjlngw7071u" path="res://characters/young_granny.tscn" id="8_1ixc8"]
+[ext_resource type="PackedScene" uid="uid://d1e8e2imh1ldh" path="res://scenes/train_engine.tscn" id="9_qudyp"]
 
 [sub_resource type="Resource" id="Resource_32rft"]
 script = ExtResource("4_hpblh")
@@ -18,16 +20,25 @@ ease = 2
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qmyb0"]
 shader = ExtResource("7_skv7a")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg6c3"]
+size = Vector2(66, 160)
+
 [node name="Main" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_o1myd")]
-z_index = -10
+z_index = -1
 
-[node name="TrainCar" parent="." instance=ExtResource("1_ilubh")]
-position = Vector2(960, 544)
+[node name="RearTrainCar" parent="." instance=ExtResource("1_ilubh")]
+position = Vector2(960, 486)
 
-[node name="TrainCar2" parent="." instance=ExtResource("1_ilubh")]
-position = Vector2(2736, 544)
+[node name="CabooseHat" type="Sprite2D" parent="RearTrainCar"]
+texture = ExtResource("3_3ot26")
+
+[node name="ForwardTrainCar" parent="." instance=ExtResource("1_ilubh")]
+position = Vector2(2736, 486)
+
+[node name="TrainEngine" parent="." instance=ExtResource("9_qudyp")]
+position = Vector2(4600, 580)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target") groups=["camera"]]
 top_level = true
@@ -69,7 +80,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="YoungGranny" parent="." instance=ExtResource("8_1ixc8")]
-position = Vector2(1407, 759)
+position = Vector2(1402, 701)
 
 [node name="TheConductor" parent="." instance=ExtResource("7_w8plg")]
-position = Vector2(222, 744)
+position = Vector2(222, 684)
+
+[node name="InvisibleWall" type="Area2D" parent="."]
+
+[node name="InvisibleWallCollision" type="CollisionShape2D" parent="InvisibleWall"]
+position = Vector2(17, 784)
+shape = SubResource("RectangleShape2D_bg6c3")

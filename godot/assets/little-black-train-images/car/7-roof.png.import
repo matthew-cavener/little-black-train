@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsiv0nsubdibb"
-path="res://.godot/imported/6-exterior.png-e00b34eec73a941fc77409e991bde781.ctex"
+uid="uid://cgnftvpu4mnm0"
+path="res://.godot/imported/7-roof.png-8d8a652a2c64c1c611ddcb530f4618ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/little-black-train-images/6-exterior.png"
-dest_files=["res://.godot/imported/6-exterior.png-e00b34eec73a941fc77409e991bde781.ctex"]
+source_file="res://assets/little-black-train-images/car/7-roof.png"
+dest_files=["res://.godot/imported/7-roof.png-8d8a652a2c64c1c611ddcb530f4618ad.ctex"]
 
 [params]
 
