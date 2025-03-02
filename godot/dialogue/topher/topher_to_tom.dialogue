@@ -8,9 +8,9 @@ Topher: Thank you, Tom!
 	- Topher: What do you mean what's left of it?
 				Tom: It's all blown away.
 		Tom: My farm's barren like the rest of it. 
-		Tom: Well, I say [i]my[/i] farm; the bank took it back. But my farm is sitting miles east, strewn about by the wind. They'll have to track down every [i][wait=0.5]speck [wait=0.5]of [wait=0.5]it.[/i] Good luck to 'em!
+		Tom: Well, I say [i]my[/i] farm; the bank took it. But my farm is sitting miles east, strewn about by the wind. They'll have to track down every [i][wait=0.5]speck [wait=0.5]of [wait=0.5]it.[/i] Good luck to 'em!
 	- Topher: I've heard a lot of people have left.
-			Tom: Sure have. A lot of us Okies have headed West. California mostly. But I hear there's more work to be had in Oregon.
+			Tom: Sure have. A lot of us [i]Okies[/i] have headed West. California mostly. But I hear there's more work to be had in Oregon.
 - Topher: Where ya headed?
 	Tom: I've heard there's work out in Oregon.
 - Topher: Enjoy your trip! => END
