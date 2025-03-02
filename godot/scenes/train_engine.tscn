@@ -46,17 +46,17 @@ texture = ExtResource("4_ls7jg")
 [node name="WheelBarMechanical" type="Sprite2D" parent="."]
 texture = ExtResource("5_as3df")
 
-[node name="CouplingF" type="Sprite2D" parent="."]
-position = Vector2(-856, 194)
-texture = ExtResource("7_p3ch5")
-region_enabled = true
-region_rect = Rect2(39, 751, 304, 199)
-
 [node name="CouplingF2" type="Sprite2D" parent="."]
 position = Vector2(312, -128)
 texture = ExtResource("3_e3udf")
 region_enabled = true
 region_rect = Rect2(1242, 379, 64, 73)
+
+[node name="CouplingF" type="Sprite2D" parent="."]
+position = Vector2(-856, 194)
+texture = ExtResource("7_p3ch5")
+region_enabled = true
+region_rect = Rect2(39, 751, 304, 199)
 
 [node name="FloorCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-104, 250)

@@ -11,7 +11,7 @@ height = 192.0
 [node name="OldGranny" type="Node2D"]
 
 [node name="OldGrannyCharacter" parent="." instance=ExtResource("1_r0oad")]
-character_name = "Ms. Lidell"
+character_name = "Ms. Liddell"
 resting_direction = 1
 
 [node name="PhysicsShape" type="CollisionShape2D" parent="OldGrannyCharacter"]
