@@ -54,34 +54,34 @@ func _ready() -> void:
         actionable_finder_shape.set_deferred("disabled", false)
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	if is_player_controlled and not is_in_dialogue:
-		handle_player_input()
-	elif not is_player_controlled and not is_in_dialogue:
-		return_to_resting_location()
-	move_and_slide()
-	update_sprite_tilt(delta)
+    if not is_on_floor():
+        velocity += get_gravity() * delta
+    if is_player_controlled and not is_in_dialogue:
+        handle_player_input()
+    elif not is_player_controlled and not is_in_dialogue:
+        return_to_resting_location()
+    move_and_slide()
+    update_sprite_tilt(delta)
 
 func update_sprite_tilt(delta: float) -> void:
-	if velocity.x != 0:
-		tilt_timer += delta * TILT_FREQUENCY
-		if tilt_timer >= 1.0:
-			tilt_timer = 0.0
-			tilt_direction *= -1
-		character_sprite.rotation = tilt_direction * TILT_AMPLITUDE
-	else:
-		character_sprite.rotation = 0.0
+    if velocity.x != 0:
+        tilt_timer += delta * TILT_FREQUENCY
+        if tilt_timer >= 1.0:
+            tilt_timer = 0.0
+            tilt_direction *= -1
+        character_sprite.rotation = tilt_direction * TILT_AMPLITUDE
+    else:
+        character_sprite.rotation = 0.0
 
 func _on_dialogue_started(_resource) -> void:
-	is_in_dialogue = true
+    is_in_dialogue = true
 
 # Need to have a slight delay before re-enabling player control, or else ending dialogue using the "ui_accept" input will immediately re-trigger the dialogue
 func _on_dialogue_finished(_resource) -> void:
-	get_tree().create_timer(DIALOGUE_EXIT_DELAY).connect("timeout", _on_dialogue_exited)
+    get_tree().create_timer(DIALOGUE_EXIT_DELAY).connect("timeout", _on_dialogue_exited)
 
 func _on_dialogue_exited() -> void:
-	is_in_dialogue = false
+    is_in_dialogue = false
 
 func switch_character(new_character_name: String) -> void:
     var new_character = get_tree().get_first_node_in_group(new_character_name)
@@ -142,14 +142,14 @@ func flip_sprite(direction) -> void:
     tween.tween_property(character_sprite, "scale", Vector2(direction, 1), SPRITE_FLIP_SPEED)
 
 func show_emote() -> void:
-	var tween = create_tween()
-	tween.tween_property(emote, "modulate:a", 1, 0.1)
-	tween.tween_property(emote, "scale", Vector2(1.5, 1.5), 0.1)
-	tween.tween_property(emote, "scale", Vector2(1, 1), 0.5)
+    var tween = create_tween()
+    tween.tween_property(emote, "modulate:a", 1, 0.1)
+    tween.tween_property(emote, "scale", Vector2(1.5, 1.5), 0.1)
+    tween.tween_property(emote, "scale", Vector2(1, 1), 0.5)
 
 func hide_emote() -> void:
-	var tween = create_tween()
-	tween.tween_property(emote, "modulate:a", 0, 0.5)
+    var tween = create_tween()
+    tween.tween_property(emote, "modulate:a", 0, 0.5)
 
 func _on_actionable_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
     if area.get_parent().has_method("show_emote"):
