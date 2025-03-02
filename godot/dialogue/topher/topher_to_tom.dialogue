@@ -1,0 +1,18 @@
+~ start
+Topher: Ticket, please!
+Topher: Thank you, Tom!
+~ Options
+- Topher: Where ya comin' from?
+	Tom: Oklahoma.
+	Tom: Or at least what's [i]left[/i] of it.
+	- Topher: What do you mean what's left of it?
+				Tom: It's all blown away.
+		Tom: My farm's barren like the rest of it. 
+		Tom: Well, I say [i]my[/i] farm; the bank took it back. But my farm is sitting miles east, strewn about by the wind. They'll have to track down every [i][wait=0.5]speck [wait=0.5]of [wait=0.5]it.[/i] Good luck to 'em!
+	- Topher: I've heard a lot of people have left.
+			Tom: Sure have. A lot of us Okies have headed West. California mostly. But I hear there's more work to be had in Oregon.
+- Topher: Where ya headed?
+	Tom: I've heard there's work out in Oregon.
+- Topher: Enjoy your trip! => END
+Topher: *Should I ask another question?* => Options
+=> END

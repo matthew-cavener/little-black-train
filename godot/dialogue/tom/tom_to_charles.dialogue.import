@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://c7jh6eir514g7"
+path="res://.godot/imported/tom_to_charles.dialogue-4f7d9e0ea547c2c51fea14026e607789.tres"
+
+[deps]
+
+source_file="res://dialogue/tom/tom_to_charles.dialogue"
+dest_files=["res://.godot/imported/tom_to_charles.dialogue-4f7d9e0ea547c2c51fea14026e607789.tres"]
+
+[params]
+
+defaults=true

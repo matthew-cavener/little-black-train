@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://m03mhh1u1oas"
+path="res://.godot/imported/alice_to_charon.dialogue-024394763f6d51dbdcbcd47ef1e4b5ba.tres"
+
+[deps]
+
+source_file="res://dialogue/alice/alice_to_charon.dialogue"
+dest_files=["res://.godot/imported/alice_to_charon.dialogue-024394763f6d51dbdcbcd47ef1e4b5ba.tres"]
+
+[params]
+
+defaults=true

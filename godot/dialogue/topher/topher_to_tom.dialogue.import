@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://desn66ax87amr"
+path="res://.godot/imported/topher_to_tom.dialogue-606458afea6c4be3a0a3185bed996419.tres"
+
+[deps]
+
+source_file="res://dialogue/topher/topher_to_tom.dialogue"
+dest_files=["res://.godot/imported/topher_to_tom.dialogue-606458afea6c4be3a0a3185bed996419.tres"]
+
+[params]
+
+defaults=true

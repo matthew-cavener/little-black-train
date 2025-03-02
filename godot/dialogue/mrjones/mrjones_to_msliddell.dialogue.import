@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://fd6oydwqiiko"
+path="res://.godot/imported/mrjones_to_msliddell.dialogue-acc8db9ea993520fc1058ebb75d47bb5.tres"
+
+[deps]
+
+source_file="res://dialogue/mrjones/mrjones_to_msliddell.dialogue"
+dest_files=["res://.godot/imported/mrjones_to_msliddell.dialogue-acc8db9ea993520fc1058ebb75d47bb5.tres"]
+
+[params]
+
+defaults=true

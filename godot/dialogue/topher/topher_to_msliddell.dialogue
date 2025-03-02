@@ -1,0 +1,17 @@
+~ start
+Topher: Ticket, please!
+Topher: Thank you, Ms. Liddell!
+~ Options
+- Topher: Where ya comin' from?
+	Ms. Liddell: Oregon.
+- Topher: Where ya headed?
+	Ms. Liddell: I'm heading[wait = 1] Home.[wait = 1] *sigh* [wait = 1] It's been a [wave]long[/wave] time.
+	Ms. Liddell: Oh! I've got some butterscotches in my bag. Do you want one young man?
+	- Topher: That's awfully kind of you Ms. Liddell. Yes please!
+			Alice: Here you go, young man.
+		Topher: *yum* => Options
+	- Topher: Eh. No thank you, Ms. Liddell.
+			Ms. Liddell: Well I'll be in my seat if you change your mind, young man.
+- Topher: Enjoy your trip! => END
+Topher: *Should I ask another question?* => Options
+=> END

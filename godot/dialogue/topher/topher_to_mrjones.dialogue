@@ -1,0 +1,16 @@
+~ start
+Topher: Ticket, please!
+Topher: Thank you, Mr. Jones!
+~ Options
+- Topher: Where ya comin' from?
+	Mr. Jones: New York City.
+- Topher: Where ya headed?
+	Mr. Jones: West Virgina.
+	- Topher: What takes you out there?
+			Mr. Jones: A business meeting. => Options
+	- Topher: Oh!!!
+		Topher: [speed=0.5]Take me [speed=0.2][wave]hooooommmeee[/wave]. [speed=0.5]Country [speed=0.2][wave]Rooooooaaddds[/wave]. [speed=0.5]To the [speed=0.2][wave]plaaaaaaacce[/wave] [speed=0.5]that I [speed=0.2][wave]beloooonnngg!!![/wave]
+	Mr. Jones: ಠ_ಠ
+- TophTopher: Enjoy your trip! => END
+Topher: *Should I ask another question?* => Options
+=> END

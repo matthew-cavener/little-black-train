@@ -7,5 +7,5 @@ extends Area2D
 @onready var player_character = get_tree().get_first_node_in_group("player")
 
 func action() -> void:
-    player_character = get_tree().get_first_node_in_group("player")
-    DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start, [self])
+	player_character = get_tree().get_first_node_in_group("player")
+	DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start, [self])

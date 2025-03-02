@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bf1ihl8pas3al"
+path="res://.godot/imported/alice_to_mrjones.dialogue-6c8daefd1ad339bbaa6af961d48a620a.tres"
+
+[deps]
+
+source_file="res://dialogue/alice/alice_to_mrjones.dialogue"
+dest_files=["res://.godot/imported/alice_to_mrjones.dialogue-6c8daefd1ad339bbaa6af961d48a620a.tres"]
+
+[params]
+
+defaults=true
