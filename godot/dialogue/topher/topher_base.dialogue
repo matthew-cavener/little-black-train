@@ -3,9 +3,10 @@ import "res://dialogue/topher/topher_to_tom.dialogue" as topher_to_tom
 import "res://dialogue/topher/topher_to_msliddell.dialogue" as topher_to_msliddell
 import "res://dialogue/topher/topher_to_mrjones.dialogue" as topher_to_mrjones
 import "res://dialogue/topher/topher_to_charles.dialogue" as topher_to_charles
+import "res://dialogue/topher/topher_to_charon.dialogue" as topher_to_charon
 
 ~ start
-match character_spoken_to.character_name
+match player_character.character_name
 	when "Alice"
 		=>< topher_to_alice/start
 	when "Tom"
@@ -16,6 +17,8 @@ match character_spoken_to.character_name
 		=>< topher_to_mrjones/start
 	when "Charles"
 		=>< topher_to_charles/start
+	when "Charon"
+		=>< topher_to_charon/start
 	else
 		Topher: I don't know you
 => END
