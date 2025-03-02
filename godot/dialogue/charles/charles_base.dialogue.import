@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bqr4xucnygest"
+path="res://.godot/imported/charles_base.dialogue-c5b3060a4a12e7ac1fddb31fbf9378dd.tres"
+
+[deps]
+
+source_file="res://dialogue/charles/charles_base.dialogue"
+dest_files=["res://.godot/imported/charles_base.dialogue-c5b3060a4a12e7ac1fddb31fbf9378dd.tres"]
+
+[params]
+
+defaults=true

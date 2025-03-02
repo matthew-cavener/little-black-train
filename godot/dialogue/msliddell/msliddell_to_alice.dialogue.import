@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://c8jrdahwmwi1b"
+path="res://.godot/imported/msliddell_to_alice.dialogue-049a8b8f9f68181b18a3dc1fdb47e4aa.tres"
+
+[deps]
+
+source_file="res://dialogue/msliddell/msliddell_to_alice.dialogue"
+dest_files=["res://.godot/imported/msliddell_to_alice.dialogue-049a8b8f9f68181b18a3dc1fdb47e4aa.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://0drl86jcfp83"
+path="res://.godot/imported/charles_to_mrjones.dialogue-9e428a6ca1abfb4bb3f4b706af577eb1.tres"
+
+[deps]
+
+source_file="res://dialogue/charles/charles_to_mrjones.dialogue"
+dest_files=["res://.godot/imported/charles_to_mrjones.dialogue-9e428a6ca1abfb4bb3f4b706af577eb1.tres"]
+
+[params]
+
+defaults=true

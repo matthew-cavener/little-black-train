@@ -1,9 +1,21 @@
-import "res://dialogue/topher/topher_to_alice.dialogue" as topher_to_alice
+import "res://dialogue/alice/alice_to_topher.dialogue" as alice_to_topher
+import "res://dialogue/tom/tom_to_topher.dialogue" as tom_to_topher
+import "res://dialogue/msliddell/msliddell_to_topher.dialogue" as msliddell_to_topher
+import "res://dialogue/mrjones/mrjones_to_topher.dialogue" as mrjones_to_topher
+import "res://dialogue/charles/charles_to_topher.dialogue" as charles_to_topher
 
 ~ start
 match character_spoken_to.character_name
 	when "Alice"
-		=>< topher_to_alice/start
+		=>< alice_to_topher/start
+	when "Tom"
+		=>< tom_to_topher/start
+	when "Ms. Liddell"
+		=>< msliddell_to_topher/start
+	when "Mr. Jones"
+		=>< mrjones_to_topher/start
+	when "Charles"
+		=>< charles_to_topher/start
 	else
 		Topher: I don't know you
 => END

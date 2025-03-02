@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://8dramcvks0bu"
+path="res://.godot/imported/charles_to_topher.dialogue-4cac464187eab716a3c2f1c6a5433159.tres"
+
+[deps]
+
+source_file="res://dialogue/charles/charles_to_topher.dialogue"
+dest_files=["res://.godot/imported/charles_to_topher.dialogue-4cac464187eab716a3c2f1c6a5433159.tres"]
+
+[params]
+
+defaults=true

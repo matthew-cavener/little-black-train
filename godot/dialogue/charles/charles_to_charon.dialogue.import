@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://b3k06uo2wla5y"
+path="res://.godot/imported/charles_to_charon.dialogue-1905e5a6dc98a01153be5046acff15e2.tres"
+
+[deps]
+
+source_file="res://dialogue/charles/charles_to_charon.dialogue"
+dest_files=["res://.godot/imported/charles_to_charon.dialogue-1905e5a6dc98a01153be5046acff15e2.tres"]
+
+[params]
+
+defaults=true
