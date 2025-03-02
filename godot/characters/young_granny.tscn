@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dwycp3rbfufe2" path="res://scenes/character.tscn" id="1_ggmlh"]
 [ext_resource type="Texture2D" uid="uid://t0bagcqw1j6d" path="res://assets/little-black-train-images/sprites.png" id="2_mpp5d"]
-[ext_resource type="Texture2D" uid="uid://byb2fn7l11r0y" path="res://assets/kenney_emotes-pack/PNG/Vector/Style 6/emote__.png" id="2_wvxpk"]
+[ext_resource type="Texture2D" uid="uid://df1aor6i5jo7k" path="res://assets/little-black-train-images/speech bubble.png" id="3_erg6n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gk3q0"]
 radius = 56.0
@@ -15,12 +15,14 @@ height = 176.0
 [node name="PhysicsShape" type="CollisionShape2D" parent="YoungGrannyCharacter"]
 shape = SubResource("CapsuleShape2D_gk3q0")
 
-[node name="Emote" type="Sprite2D" parent="YoungGrannyCharacter"]
-position = Vector2(0, -115)
-texture = ExtResource("2_wvxpk")
-
 [node name="CharacterSprite" type="Sprite2D" parent="YoungGrannyCharacter"]
 texture = ExtResource("2_mpp5d")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(450, 672, 123, 182)
+
+[node name="Emote" type="Sprite2D" parent="YoungGrannyCharacter"]
+position = Vector2(0, -128)
+texture = ExtResource("3_erg6n")
+region_enabled = true
+region_rect = Rect2(900, 272, 101, 71)

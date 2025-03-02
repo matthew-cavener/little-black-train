@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn8hw6q3wam6w"
-path="res://.godot/imported/4-shade5.png-985c966030bf30cc39a9e9a21cd76eb7.ctex"
+uid="uid://cpniwa2iohcjy"
+path="res://.godot/imported/4-shade1.png-161d510b433515c35b21af492cdadd45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/little-black-train-images/4-shade5.png"
-dest_files=["res://.godot/imported/4-shade5.png-985c966030bf30cc39a9e9a21cd76eb7.ctex"]
+source_file="res://assets/little-black-train-images/car/4-shade1.png"
+dest_files=["res://.godot/imported/4-shade1.png-161d510b433515c35b21af492cdadd45.ctex"]
 
 [params]
 
