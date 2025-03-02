@@ -12,6 +12,7 @@ height = 192.0
 
 [node name="OldGrannyCharacter" parent="." instance=ExtResource("1_r0oad")]
 character_name = "Ms. Lidell"
+resting_direction = 1
 
 [node name="PhysicsShape" type="CollisionShape2D" parent="OldGrannyCharacter"]
 shape = SubResource("CapsuleShape2D_5882x")

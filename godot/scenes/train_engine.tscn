@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1e8e2imh1ldh"]
+[gd_scene load_steps=12 format=3 uid="uid://wfu54gotsqxg"]
 
 [ext_resource type="Script" path="res://scenes/train_engine.gd" id="1_fmbyw"]
 [ext_resource type="Texture2D" uid="uid://ws7mx0dq0lce" path="res://assets/little-black-train-images/engine/train engine interior.png" id="1_xqope"]

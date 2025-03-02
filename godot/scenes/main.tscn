@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2pkgj3tt1uee"]
+[gd_scene load_steps=19 format=3 uid="uid://d2pkgj3tt1uee"]
 
 [ext_resource type="PackedScene" uid="uid://b510yordih2nr" path="res://scenes/train_car.tscn" id="1_ilubh"]
 [ext_resource type="PackedScene" uid="uid://dexh0udn7hvpr" path="res://scenes/background.tscn" id="1_o1myd"]
@@ -9,7 +9,12 @@
 [ext_resource type="Shader" path="res://shaders/greyscale.gdshader" id="7_skv7a"]
 [ext_resource type="PackedScene" uid="uid://cog63fm50ga5b" path="res://characters/conductor.tscn" id="7_w8plg"]
 [ext_resource type="PackedScene" uid="uid://cdvjlngw7071u" path="res://characters/young_granny.tscn" id="8_1ixc8"]
-[ext_resource type="PackedScene" uid="uid://d1e8e2imh1ldh" path="res://scenes/train_engine.tscn" id="9_qudyp"]
+[ext_resource type="PackedScene" uid="uid://wfu54gotsqxg" path="res://scenes/train_engine.tscn" id="9_qudyp"]
+[ext_resource type="PackedScene" uid="uid://dywdrrocvbimk" path="res://characters/engineer.tscn" id="11_xk4fx"]
+[ext_resource type="PackedScene" uid="uid://ir3wpsdits3f" path="res://characters/banker.tscn" id="12_ds35a"]
+[ext_resource type="PackedScene" uid="uid://dfslsfwsrsvlh" path="res://characters/migrant_farmer.tscn" id="13_cedkp"]
+[ext_resource type="PackedScene" uid="uid://bwanx11cpxiem" path="res://characters/real_estate_bro.tscn" id="14_j1fc5"]
+[ext_resource type="PackedScene" uid="uid://devjkvib5tcbv" path="res://characters/old_granny.tscn" id="15_1uc2m"]
 
 [sub_resource type="Resource" id="Resource_32rft"]
 script = ExtResource("4_hpblh")
@@ -90,3 +95,18 @@ position = Vector2(222, 684)
 [node name="InvisibleWallCollision" type="CollisionShape2D" parent="InvisibleWall"]
 position = Vector2(17, 784)
 shape = SubResource("RectangleShape2D_bg6c3")
+
+[node name="Engineer" parent="." instance=ExtResource("11_xk4fx")]
+position = Vector2(4139, 516)
+
+[node name="Banker" parent="." instance=ExtResource("12_ds35a")]
+position = Vector2(2512, 676)
+
+[node name="MigrantFarmer" parent="." instance=ExtResource("13_cedkp")]
+position = Vector2(2033, 675)
+
+[node name="RealEstateBro" parent="." instance=ExtResource("14_j1fc5")]
+position = Vector2(525, 682)
+
+[node name="OldGranny" parent="." instance=ExtResource("15_1uc2m")]
+position = Vector2(3020, 691)
