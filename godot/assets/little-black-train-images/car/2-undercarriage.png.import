@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ek041y8qdqqi"
-path="res://.godot/imported/7-nameplate.png-d6fe2d1f14854813b2c487e54b944778.ctex"
+uid="uid://d2skvurxd3fgs"
+path="res://.godot/imported/2-undercarriage.png-8bb17aaf15530ec9b50de8df9cb28379.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/little-black-train-images/7-nameplate.png"
-dest_files=["res://.godot/imported/7-nameplate.png-d6fe2d1f14854813b2c487e54b944778.ctex"]
+source_file="res://assets/little-black-train-images/car/2-undercarriage.png"
+dest_files=["res://.godot/imported/2-undercarriage.png-8bb17aaf15530ec9b50de8df9cb28379.ctex"]
 
 [params]
 

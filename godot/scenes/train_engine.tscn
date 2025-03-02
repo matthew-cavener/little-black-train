@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://d1e8e2imh1ldh"]
+
+[ext_resource type="Script" path="res://scenes/train_engine.gd" id="1_fmbyw"]
+[ext_resource type="Texture2D" uid="uid://ws7mx0dq0lce" path="res://assets/little-black-train-images/engine/train engine interior.png" id="1_xqope"]
+[ext_resource type="Texture2D" uid="uid://e8w0pwqf5o20" path="res://assets/little-black-train-images/engine/train engine exterior.png" id="2_e5oka"]
+[ext_resource type="Texture2D" uid="uid://b0p6dxwh30csq" path="res://assets/little-black-train-images/engine/wheels and bell.png" id="3_e3udf"]
+[ext_resource type="Texture2D" uid="uid://b3xjcl17efqij" path="res://assets/little-black-train-images/engine/wheel bars.png" id="4_ls7jg"]
+[ext_resource type="Texture2D" uid="uid://dytk15tger0c0" path="res://assets/little-black-train-images/engine/wheel bar mechanical.png" id="5_as3df"]
+[ext_resource type="Texture2D" uid="uid://dxrx7stlkqnre" path="res://assets/little-black-train-images/1-couplingF.png" id="7_p3ch5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqqvm"]
+size = Vector2(1808, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_di2f7"]
+size = Vector2(304, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akk0a"]
+size = Vector2(288, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sras3"]
+size = Vector2(98, 194)
+
+[node name="TrainEngine" type="StaticBody2D"]
+script = ExtResource("1_fmbyw")
+
+[node name="Interior" type="Sprite2D" parent="."]
+texture = ExtResource("1_xqope")
+
+[node name="Exterior" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(-524, -72)
+texture = ExtResource("2_e5oka")
+region_enabled = true
+region_rect = Rect2(208, 280, 456, 376)
+
+[node name="Wheels" type="Sprite2D" parent="."]
+position = Vector2(0, 257)
+texture = ExtResource("3_e3udf")
+region_enabled = true
+region_rect = Rect2(272, 680, 1344, 264)
+region_filter_clip_enabled = true
+
+[node name="WheelBars" type="Sprite2D" parent="."]
+texture = ExtResource("4_ls7jg")
+
+[node name="WheelBarMechanical" type="Sprite2D" parent="."]
+texture = ExtResource("5_as3df")
+
+[node name="CouplingF" type="Sprite2D" parent="."]
+position = Vector2(-856, 194)
+texture = ExtResource("7_p3ch5")
+region_enabled = true
+region_rect = Rect2(39, 751, 304, 199)
+
+[node name="CouplingF2" type="Sprite2D" parent="."]
+position = Vector2(312, -128)
+texture = ExtResource("3_e3udf")
+region_enabled = true
+region_rect = Rect2(1242, 379, 64, 73)
+
+[node name="FloorCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-104, 250)
+shape = SubResource("RectangleShape2D_pqqvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-688, 178)
+rotation = -0.888373
+shape = SubResource("RectangleShape2D_di2f7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-480, 67.5)
+shape = SubResource("RectangleShape2D_akk0a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-312, 0)
+shape = SubResource("RectangleShape2D_sras3")

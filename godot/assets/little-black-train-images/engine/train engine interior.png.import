@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qjj6kuvi2un"
-path="res://.godot/imported/5-table_left.png-6d6d63a13d5ad334df0e75f0a38b9964.ctex"
+uid="uid://ws7mx0dq0lce"
+path="res://.godot/imported/train engine interior.png-8b6be509dc7243e1fc7189eb50d44f45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/little-black-train-images/5-table_left.png"
-dest_files=["res://.godot/imported/5-table_left.png-6d6d63a13d5ad334df0e75f0a38b9964.ctex"]
+source_file="res://assets/little-black-train-images/engine/train engine interior.png"
+dest_files=["res://.godot/imported/train engine interior.png-8b6be509dc7243e1fc7189eb50d44f45.ctex"]
 
 [params]
 

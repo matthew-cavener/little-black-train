@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dexh0udn7hvpr"]
+[gd_scene load_steps=10 format=3 uid="uid://dexh0udn7hvpr"]
 
 [ext_resource type="Texture2D" uid="uid://cg8ixb1gbqoc6" path="res://assets/Free-Horizontal-Game-Backgrounds/PNG/game_background_3/layers/sky.png" id="1_nob3t"]
 [ext_resource type="Texture2D" uid="uid://btv61liv7mwt0" path="res://assets/Free-Horizontal-Game-Backgrounds/PNG/game_background_3/layers/rocks.png" id="2_1x2lb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://daqru7e8lixgh" path="res://assets/Free-Horizontal-Game-Backgrounds/PNG/game_background_3/layers/ground_2.png" id="4_hfsa8"]
 [ext_resource type="Texture2D" uid="uid://5ajktoacyenn" path="res://assets/Free-Horizontal-Game-Backgrounds/PNG/game_background_3/layers/ground_3.png" id="5_gojkd"]
 [ext_resource type="Texture2D" uid="uid://vtd78hgjsd4p" path="res://assets/Free-Horizontal-Game-Backgrounds/PNG/game_background_3/layers/plant.png" id="6_j6u85"]
+[ext_resource type="Texture2D" uid="uid://e56u4bup1uth" path="res://assets/little-black-train-images/rail road.png" id="9_4dx2w"]
 
 [node name="Background" type="Node2D"]
 
@@ -80,3 +81,29 @@ autoscroll = Vector2(-1920, 0)
 [node name="PlantSprite" type="Sprite2D" parent="Plant"]
 position = Vector2(960, 540)
 texture = ExtResource("6_j6u85")
+
+[node name="Rail" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.9, 0.9)
+repeat_size = Vector2(3840, 0)
+autoscroll = Vector2(-1920, 0)
+
+[node name="RailSprite" type="Sprite2D" parent="Rail"]
+position = Vector2(960, 1016)
+scale = Vector2(1.05785, 1)
+texture = ExtResource("9_4dx2w")
+region_enabled = true
+region_rect = Rect2(79, 658, 1815, 137)
+
+[node name="Rail2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(1920, 0)
+repeat_size = Vector2(3840, 0)
+autoscroll = Vector2(-1920, 0)
+
+[node name="RailSprite" type="Sprite2D" parent="Rail2"]
+position = Vector2(960, 1016)
+scale = Vector2(1.05785, 1)
+texture = ExtResource("9_4dx2w")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(79, 658, 1815, 137)

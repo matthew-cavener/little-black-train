@@ -124,7 +124,7 @@ func handle_player_input() -> void:
     var direction := Input.get_axis("ui_left", "ui_right")
     if direction:
         var tween = create_tween()
-        tween.tween_property(character_sprite, "scale", Vector2(direction, 1), 0.1)
+        tween.tween_property(character_sprite, "scale", Vector2(direction, 1), 0.2)
         velocity.x = direction * SPEED * PLAYER_VELOCITY_MULTIPLIER
     else:
         velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -135,12 +135,12 @@ func return_to_resting_location() -> void:
         velocity.x = 0
         z_index = 0
         var tween = create_tween()
-        tween.tween_property(character_sprite, "scale", Vector2(resting_direction, 1), 0.1)
+        tween.tween_property(character_sprite, "scale", Vector2(resting_direction, 1), 0.2)
     else:
         var direction: float = signf(resting_location.x - position.x)
         velocity.x = direction * SPEED
         var tween = create_tween()
-        tween.tween_property(character_sprite, "scale", Vector2(direction, 1), 0.1)
+        tween.tween_property(character_sprite, "scale", Vector2(direction, 1), 0.2)
 
 func show_emote() -> void:
     var tween = create_tween()
