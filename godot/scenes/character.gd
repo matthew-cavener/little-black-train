@@ -4,6 +4,7 @@ const SPEED = 300.0
 const DIALOGUE_EXIT_DELAY = 0.1
 const RESTING_LOCATION_THRESHOLD = 3.0
 const PLAYER_VELOCITY_MULTIPLIER = 1.5
+const SPRITE_FLIP_SPEED = 0.2
 const TILT_FREQUENCY: float = 5
 const TILT_AMPLITUDE: float = 0.2
 
@@ -28,14 +29,7 @@ var is_in_dialogue_range: bool = false
 var is_in_dialogue: bool = false
 var tilt_timer: float = 0.0
 var tilt_direction: int = 1
-
-# Character names:
-    # Granny: Ms. Liddell
-    # Young Granny: Alice
-    # Counductor: Christopher "Topher"
-    # R.E. Bro: Carlos "Charles"
-    # Banker: Mr. Jones
-    # Migrant Farmer: Tom
+var previous_direction: float = 0.0
 
 func _ready() -> void:
     DialogueManager.dialogue_started.connect(_on_dialogue_started)
@@ -121,26 +115,31 @@ func handle_player_input() -> void:
             var character_spoken_to = actionables[0].get_parent()
             actionables[0].get_parent().velocity = Vector2(0, 0)
             actionable.action(character_spoken_to)
+
     var direction := Input.get_axis("ui_left", "ui_right")
     if direction:
-        var tween = create_tween()
-        tween.tween_property(character_sprite, "scale", Vector2(direction, 1), 0.2)
+        if direction != previous_direction:
+            flip_sprite(direction)
         velocity.x = direction * SPEED * PLAYER_VELOCITY_MULTIPLIER
     else:
         velocity.x = move_toward(velocity.x, 0, SPEED)
+
+    previous_direction = direction
 
 func return_to_resting_location() -> void:
     if abs(position.x - resting_location.x) < 3:
         position.x = resting_location.x
         velocity.x = 0
         z_index = 0
-        var tween = create_tween()
-        tween.tween_property(character_sprite, "scale", Vector2(resting_direction, 1), 0.2)
+        flip_sprite(resting_direction)
     else:
         var direction: float = signf(resting_location.x - position.x)
         velocity.x = direction * SPEED
-        var tween = create_tween()
-        tween.tween_property(character_sprite, "scale", Vector2(direction, 1), 0.2)
+        flip_sprite(direction)
+
+func flip_sprite(direction) -> void:
+    var tween = create_tween()
+    tween.tween_property(character_sprite, "scale", Vector2(direction, 1), SPRITE_FLIP_SPEED)
 
 func show_emote() -> void:
     var tween = create_tween()
