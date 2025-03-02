@@ -1,0 +1,15 @@
+~ start
+Topher: Ticket, please!
+Topher: Thank you, Charles!
+~ Options
+- Topher: Where ya comin' from?
+	Charles: Home. Was just back visiting family.
+- Topher: Where ya headed?
+	Charles: New York.
+	- Topher: New York City?
+			Charles: That's right. I work out there. => Options
+	- Topher: Oh! The Big Apple!
+			Charles: ...
+- Topher: Enjoy your trip! => END
+Topher: *Should I ask another question?* => Options
+=> END

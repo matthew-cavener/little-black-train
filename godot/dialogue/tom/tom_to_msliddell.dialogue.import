@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://byei234ngqvle"
+path="res://.godot/imported/tom_to_msliddell.dialogue-e3af1a29949b37d322dff30865651b2a.tres"
+
+[deps]
+
+source_file="res://dialogue/tom/tom_to_msliddell.dialogue"
+dest_files=["res://.godot/imported/tom_to_msliddell.dialogue-e3af1a29949b37d322dff30865651b2a.tres"]
+
+[params]
+
+defaults=true

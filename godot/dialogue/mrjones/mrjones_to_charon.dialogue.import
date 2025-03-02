@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://ctuqyg1dlcm7g"
+path="res://.godot/imported/mrjones_to_charon.dialogue-53b12336da7c0a4ab345e4a2e21750f2.tres"
+
+[deps]
+
+source_file="res://dialogue/mrjones/mrjones_to_charon.dialogue"
+dest_files=["res://.godot/imported/mrjones_to_charon.dialogue-53b12336da7c0a4ab345e4a2e21750f2.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cqloxrbgnyc45"
+path="res://.godot/imported/tom_base.dialogue-598211d7d9c7a984fe4a325829bfa969.tres"
+
+[deps]
+
+source_file="res://dialogue/tom/tom_base.dialogue"
+dest_files=["res://.godot/imported/tom_base.dialogue-598211d7d9c7a984fe4a325829bfa969.tres"]
+
+[params]
+
+defaults=true

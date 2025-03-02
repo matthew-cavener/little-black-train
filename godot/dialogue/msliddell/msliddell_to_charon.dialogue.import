@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://b8cg2gxegy2nc"
+path="res://.godot/imported/msliddell_to_charon.dialogue-2fdeb5c4908cb6a3ab0ae8eb8ea22e43.tres"
+
+[deps]
+
+source_file="res://dialogue/msliddell/msliddell_to_charon.dialogue"
+dest_files=["res://.godot/imported/msliddell_to_charon.dialogue-2fdeb5c4908cb6a3ab0ae8eb8ea22e43.tres"]
+
+[params]
+
+defaults=true

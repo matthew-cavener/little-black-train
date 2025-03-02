@@ -1,0 +1,21 @@
+import "res://dialogue/alice/alice_to_tom.dialogue" as alice_to_tom
+import "res://dialogue/topher/topher_to_tom.dialogue" as topher_to_tom
+import "res://dialogue/msliddell/msliddell_to_tom.dialogue" as msliddell_to_tom
+import "res://dialogue/mrjones/mrjones_to_tom.dialogue" as mrjones_to_tom
+import "res://dialogue/charles/charles_to_tom.dialogue" as charles_to_tom
+
+~ start
+match player_character.character_name
+	when "Alice"
+		=>< alice_to_tom/start
+	when "Topher"
+		=>< topher_to_tom/start
+	when "Ms. Liddell"
+		=>< msliddell_to_tom/start
+	when "Mr. Jones"
+		=>< mrjones_to_tom/start
+	when "Charles"
+		=>< charles_to_tom/start
+	else
+		Tom: I don't know you
+=> END

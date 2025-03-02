@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cx2nrk1hb6wtf"
+path="res://.godot/imported/alice_to_tom.dialogue-ea42369a5ea716326680f7ce93808873.tres"
+
+[deps]
+
+source_file="res://dialogue/alice/alice_to_tom.dialogue"
+dest_files=["res://.godot/imported/alice_to_tom.dialogue-ea42369a5ea716326680f7ce93808873.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bkf574cauwnue"
+path="res://.godot/imported/topher_to_mrjones.dialogue-89d624b2ea4aa59e81a98dd26f768ed9.tres"
+
+[deps]
+
+source_file="res://dialogue/topher/topher_to_mrjones.dialogue"
+dest_files=["res://.godot/imported/topher_to_mrjones.dialogue-89d624b2ea4aa59e81a98dd26f768ed9.tres"]
+
+[params]
+
+defaults=true

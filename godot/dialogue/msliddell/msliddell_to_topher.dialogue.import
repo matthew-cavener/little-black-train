@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://btsevhccwbray"
+path="res://.godot/imported/msliddell_to_topher.dialogue-5e93becd3e56b34516084039269a8a14.tres"
+
+[deps]
+
+source_file="res://dialogue/msliddell/msliddell_to_topher.dialogue"
+dest_files=["res://.godot/imported/msliddell_to_topher.dialogue-5e93becd3e56b34516084039269a8a14.tres"]
+
+[params]
+
+defaults=true

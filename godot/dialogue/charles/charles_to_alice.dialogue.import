@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://b7cwfkadde5r5"
+path="res://.godot/imported/charles_to_alice.dialogue-75922e122fea69f108ce67f46ceb3109.tres"
+
+[deps]
+
+source_file="res://dialogue/charles/charles_to_alice.dialogue"
+dest_files=["res://.godot/imported/charles_to_alice.dialogue-75922e122fea69f108ce67f46ceb3109.tres"]
+
+[params]
+
+defaults=true

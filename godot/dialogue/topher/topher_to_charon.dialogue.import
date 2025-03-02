@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cnwb8ful0n4lg"
+path="res://.godot/imported/topher_to_charon.dialogue-d3db69da306f013adeee7c0cc7cad318.tres"
+
+[deps]
+
+source_file="res://dialogue/topher/topher_to_charon.dialogue"
+dest_files=["res://.godot/imported/topher_to_charon.dialogue-d3db69da306f013adeee7c0cc7cad318.tres"]
+
+[params]
+
+defaults=true
