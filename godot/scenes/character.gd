@@ -38,8 +38,8 @@ func _ready() -> void:
     emote.modulate.a = 0
     add_to_group(character_name)
     var base_dialogue_resource = "res://dialogue/%s/%s_base.dialogue" % [
-        character_name.to_lower().replace(" ", "_").replace(".",""),
-        character_name.to_lower().replace(" ", "_").replace(".","")
+        character_name.to_lower().replace(" ", "").replace(".",""),
+        character_name.to_lower().replace(" ", "").replace(".","")
     ]
     actionable.dialogue_resource = load(base_dialogue_resource)
     return_to_resting_location()

@@ -25,6 +25,6 @@ elif State.topher_has_alice_ticket == true
 	Alice: Um. West Virgina. => PostTicketOptions
 - Where did you say you were going?
 	Alice: You're just picking on me now. I don't know yet. => PostTicketOptions
-- Walk in her shoes [if State.topher_has_given_tickets == true]
+- *Walk in her shoes* [if State.topher_has_given_tickets == true]
 	do player_character.switch_character(character_spoken_to.character_name)
 - Enjoy your trip! => END
