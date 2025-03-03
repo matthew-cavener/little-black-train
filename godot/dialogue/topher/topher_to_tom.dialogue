@@ -1,6 +1,14 @@
 ~ start
-Topher: Ticket, please!
-Topher: Thank you, Tom!
+if State.topher_has_tom_ticket == false
+	Topher: Ticket, please!
+	Topher: Thank you, Tom!
+	set State.topher_has_tom_ticket = true
+	=> Options
+elif State.topher_has_tom_ticket == true
+	Tom: Hmmm?
+	=> PostTicketOptions
+=> END
+
 ~ Options
 - Topher: Where ya comin' from?
 	Tom: Oklahoma.
@@ -8,11 +16,18 @@ Topher: Thank you, Tom!
 	- Topher: What do you mean what's left of it?
 				Tom: It's all blown away.
 		Tom: My farm's barren like the rest of it. 
-		Tom: Well, I say [i]my[/i] farm; the bank took it. But my farm is sitting miles east, strewn about by the wind. They'll have to track down every [i][wait=0.5]speck [wait=0.5]of [wait=0.5]it.[/i] Good luck to 'em!
+		Tom: Well, I say [i]my[/i] farm; the bank took it. But my farm is sitting miles east, strewn about by the wind. They'll have to track down every [i][wait=0.5]speck [wait=0.5]of [wait=0.5]it.[/i] Good luck to 'em! => Options
 	- Topher: I've heard a lot of people have left.
-			Tom: Sure have. A lot of us [i]Okies[/i] have headed West. California mostly. But I hear there's more work to be had in Oregon.
+			Tom: Sure have. A lot of us [i]Okies[/i] have headed West. California mostly. But I hear there's more work to be had in Oregon. => Options
 - Topher: Where ya headed?
-	Tom: I've heard there's work out in Oregon.
-- Topher: Enjoy your trip! => END
-Topher: *Should I ask another question?* => Options
-=> END
+	Tom: I've heard there's work out in Oregon. => Options
+- Enjoy your trip! => END!
+
+~ PostTicketOptions
+- Where were you comin' from again?
+	Tom: Oklahoma. => PostTicketOptions
+- Where did you say you were going?
+	Tom: Oregon. For work, I hope. => PostTicketOptions
+- Walk in his shoes [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+- Enjoy your trip! => END!

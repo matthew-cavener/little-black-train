@@ -1,16 +1,31 @@
 ~ start
-Topher: Ticket, please!
-Topher: Thank you, Mr. Jones!
+if State.topher_has_mrjones_ticket == false
+	Topher: Ticket, please!
+	Topher: Thank you, Mr. Jones!
+	set State.topher_has_mrjones_ticket = true
+	=> Options
+elif State.topher_has_mrjones_ticket ==true
+	Topher: Do you need something, chap?
+	=> PostTicketOptions
+=> END
+
 ~ Options
 - Topher: Where ya comin' from?
-	Mr. Jones: New York City.
+	Mr. Jones: New York City. => Options
 - Topher: Where ya headed?
 	Mr. Jones: West Virgina.
 	- Topher: What takes you out there?
 			Mr. Jones: Back to work as usual. => Options
 	- Topher: Oh!!!
 		Topher: [speed=0.5]Take me [speed=0.2][wave]hooooommmeee[/wave]. [speed=0.5]Country [speed=0.2][wave]Rooooooaaddds[/wave]. [speed=0.5]To the [speed=0.2][wave]plaaaaaaacce[/wave] [speed=0.5]that I [speed=0.2][wave]beloooonnngg!!![/wave]
-	Mr. Jones: ಠ_ಠ
+	Mr. Jones: ಠ_ಠ => Options
 - TophTopher: Enjoy your trip! => END
-Topher: *Should I ask another question?* => Options
-=> END
+~ PostTicketOptions
+- Where were you comin' from again?
+	Mr. Jones: I'm coming back from New York. => PostTicketOptions
+- Where did you say you were going?
+	Mr. Jones: I'm returning to West Virginia. I've got some important decisions to make. => PostTicketOptions
+- Walk in his shoes [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+- Enjoy your trip! => END!
+

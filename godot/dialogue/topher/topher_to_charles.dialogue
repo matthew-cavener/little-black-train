@@ -1,9 +1,18 @@
 ~ start
-Topher: Ticket, please!
-Topher: Thank you, Charles!
+if State.topher_has_charles_ticket == false
+	Topher: Ticket, please!
+	Topher: Thank you, Charles!
+	set State.topher_has_charles_ticket = true
+	=> Options
+elif State.topher_has_charles_ticket == true
+	Charles: Can I help you?
+	=> PostTicketOptions
+=> END
+
+
 ~ Options
 - Topher: Where ya comin' from?
-	Charles: Home. Was just back visiting family.
+	Charles: Home. Was just back visiting family. => Options
 - Topher: Where ya headed?
 	Charles: New York.
 	- Topher: New York City?
@@ -11,5 +20,12 @@ Topher: Thank you, Charles!
 	- Topher: Oh! The Big Apple!
 			Charles: ...
 - Topher: Enjoy your trip! => END
-Topher: *Should I ask another question?* => Options
-=> END
+
+~ PostTicketOptions
+- Where were you comin' from again?
+	Charles: Home. => PostTicketOptions
+- Where did you say you were going?
+	Charles: I'm headed back to New York. I have work in then morning. => PostTicketOptions
+- Walk in his shoes [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+- Enjoy your trip! => END

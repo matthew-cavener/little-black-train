@@ -1,28 +1,30 @@
 ~ start
-Topher: Ticket, please!
-Topher: Thank you, Alice!
-~ Options
-- Topher: Where ya comin' from?
-	Alice: West Virgina.
-- Topher: Where ya headed?
-	Alice: I'm not sure yet.
-	- Topher: Why aren't you sure yet?
-			Alice: I just haven't decided where I want to go. => Options
-	- Topher: Why on earth are you on a train if you don't know where you're going?
-			Alice: [shake]*humph*[/shake]
-- Topher: Enjoy your trip! => END
-Topher: *Should I ask another question?* => Options
+if State.topher_has_alice_ticket == false
+	Topher: Ticket, please!
+	Topher: Thank you, Alice!
+	set State.topher_has_alice_ticket = true
+	=> Options
+elif State.topher_has_alice_ticket == true
+	Alice: Yes?
+	=> PostTicketOptions
 => END
-#~ start
-#Topher: [[Hi|Hello|Howdy]], this is some dialogue.
-#Topher: Here are some choices.
-#- First one
-#	Topher: You picked the first one.
-#- Second one
-#	Topher: You picked the second one.
-#- Start again => start
-#- Walk in their shoes
-#	do parent.switch_character(parent.character_name)
-#- End the conversation => END
-#Topher: For more information see the online documentation.
-#=> END
+
+~ Options
+- Where ya comin' from?
+	Alice: West Virgina. => Options
+- Where ya headed?
+	Alice: I'm not sure yet.
+	- Why aren't you sure yet?
+			Alice: I just haven't decided where I want to go. => Options
+	- Why on earth are you on a train if you don't know where you're going?
+			Alice: [shake]*humph*[/shake]
+- Enjoy your trip! => END
+
+~ PostTicketOptions
+- Where were you comin' from again?
+	Alice: Um. West Virgina. => PostTicketOptions
+- Where did you say you were going?
+	Alice: You're just picking on me now. I don't know yet. => PostTicketOptions
+- Walk in her shoes [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+- Enjoy your trip! => END

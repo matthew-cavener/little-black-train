@@ -1,11 +1,20 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+alice: hello this is text
 => END
+
+#Text Option Example:
+#~ start
+#Topher: Ticket, please!
+#Topher: Thank you, Alice!
+#~ Options
+#- Topher: Where ya comin' from?
+#	Alice: West Virgina.
+#- Topher: Where ya headed?
+#	Alice: I'm not sure yet.
+#	- Topher: Why aren't you sure yet?
+#			Alice: I just haven't decided where I want to go. => Options
+#	- Topher: Why on earth are you on a train if you don't know where you're going?
+#			Alice: [shake]*humph*[/shake]
+#- Topher: Enjoy your trip! => END
+#Topher: *Should I ask another question?* => Options
+#=> END

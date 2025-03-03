@@ -6,7 +6,7 @@ import "res://dialogue/charles/charles_to_charon.dialogue" as charles_to_charon
 import "res://dialogue/topher/topher_to_charon.dialogue" as topher_to_charon
 
 ~ start
-match player_character.character_name
+match character_spoken_to.character_name
 	when "Alice"
 		=>< alice_to_charon/start
 	when "Tom"
