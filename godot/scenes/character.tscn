@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://blube5cir0v5s" path="res://helpers/actionable.tscn" id="3_unagc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yu18l"]
-radius = 128.0
+radius = 98.0
 height = 256.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tfu4v"]
-radius = 128.0
+radius = 99.0
 height = 256.0
 
 [node name="Character" type="CharacterBody2D" groups=["character"]]

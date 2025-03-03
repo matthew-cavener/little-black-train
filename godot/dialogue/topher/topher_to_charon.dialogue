@@ -1,11 +1,17 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+if State.topher_has_given_tickets == true
+	Charon: [shake]...[/shake]
+
+elif State.topher_has_alice_ticket == true and State.topher_has_charles_ticket == true and State.topher_has_mrjones_ticket == true and State.topher_has_msliddell_ticket == true and State.topher_has_tom_ticket == true
+	set State.topher_has_given_tickets = true
+	Topher: Hey Charon, here's their tickets.
+
+	Charon: *Accepts the tickets.*
+
+	Charon: [shake]...[/shake]
+
+else
+	Charon: [shake]...[/shake]
+Charon: *Waves [wave]goodbye.[/wave]*
 => END
+

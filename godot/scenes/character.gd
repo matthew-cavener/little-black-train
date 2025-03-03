@@ -74,6 +74,7 @@ func update_sprite_tilt(delta: float) -> void:
         character_sprite.rotation = 0.0
 
 func _on_dialogue_started(_resource) -> void:
+    velocity.x = 0
     is_in_dialogue = true
 
 # Need to have a slight delay before re-enabling player control, or else ending dialogue using the "ui_accept" input will immediately re-trigger the dialogue

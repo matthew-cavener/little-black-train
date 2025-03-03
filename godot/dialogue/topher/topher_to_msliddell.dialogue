@@ -1,17 +1,32 @@
 ~ start
-Topher: Ticket, please!
-Topher: Thank you, Ms. Liddell!
+if State.topher_has_msliddell_ticket == false
+	Topher: Ticket, please!
+	Topher: Thank you, Ms. Liddell!
+	set State.topher_has_msliddell_ticket = true
+	=> Options
+elif State.topher_has_msliddell_ticket == true
+	Ms. Liddell: Butterscotch?
+	=> PostTicketOptions
+=> END
+
 ~ Options
 - Topher: Where ya comin' from?
-	Ms. Liddell: Oregon.
+	Ms. Liddell: Oregon. => Options
 - Topher: Where ya headed?
 	Ms. Liddell: I'm heading[wait = 1] Home.[wait = 1] *sigh* [wait = 1] It's been a [wave]long[/wave] time.
-	Ms. Liddell: Oh! I've got some butterscotches in my bag. Do you want one young man?
+	Ms. Liddell: Oh! I've got some butterscotches in my bag. Do you want one, young man?
 	- Topher: That's awfully kind of you Ms. Liddell. Yes please!
 			Alice: Here you go, young man.
 		Topher: *yum* => Options
 	- Topher: Eh. No thank you, Ms. Liddell.
-			Ms. Liddell: Well I'll be in my seat if you change your mind, young man.
+			Ms. Liddell: Well I'll be in my seat if you change your mind, young man. => Options
 - Topher: Enjoy your trip! => END
-Topher: *Should I ask another question?* => Options
-=> END
+
+~ PostTicketOptions
+- Where were you comin' from again?
+	Ms. Liddell: Oregon, dearie. => PostTicketOptions
+- Where did you say you were going?
+	Ms. Liddell: Home. I can't wait to see my husband! => PostTicketOptions
+- Walk in her shoes [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+- Enjoy your trip! => END!
