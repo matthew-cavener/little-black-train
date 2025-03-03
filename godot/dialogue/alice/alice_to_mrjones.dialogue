@@ -1,11 +1,41 @@
+#This conversation should cover Alice's father and the reality/struggle of the coal miner for the benefit of Mr. Jones
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+if State.mrjones_and_alice_had_first_conversation == false
+	Alice: I hear your a businessman out of West Virginia.
+	Mr. Jones: That's right. => option
+elif State.mrjones_and_alice_had_first_conversation == true
+	Alice: Hey, Mr. Jones, thanks for the advice earlier.
+	Mr. Jones: You're welcome. You mentioned your family was in the coal business?
+	Alice: That's right, my pa was a miner.
+	Mr. Jones: Was? Retired? Or is he lookin' for work?
+	=> paHasPassed
+- Alice: It's been nice chatting with you. => END
 => END
+
+~ option
+- Alice: What type of business?
+	Mr. Jones: I own a small coal mining operation. Small for now at least.
+	Alice: Oh, my pa was a miner.
+	Mr. Jones: Was? Retired? Or is he lookin' for work?
+	=> paHasPassed
+- Alice: You've given me a lot to think about, Mr. Jones. => END
+		
+~ paHasPassed
+- Alice: The coal buried him.
+- Alice: ...
+Mr. Jones: My condolences. Was it a collapse, explosion, or...? => whatHappenedToPa
+
+~ whatHappenedToPa
+- Alice: Black lung.
+	Alice: I was with him up until the end. His voice so hoarse I don't know if i'll ever remember it another way.
+	Alice: He said to me, "I coulda made something of myself out there. Don't stay here for my bones, Alice. Go find a place. Anywhere but here."
+	Alice: And I mean to.
+- Alice: He died... horribly.
+	Alice: Coughing out black crud. Couldn't say two words without [wait=1]gasping[wait=1] for a breath. Company never gave a damn about him.
+	Alice: Once he started slowing, they replaced him. But he was already suffocating on the stuff. He worked until they wouldn't let him anymore.
+	Alice: He left the mine to go to his deathbed.
+Alice: ...I'm sorry, you'll... [shake]you'll have to excuse me.[/shake]
+set State.alice_and_mrjones_had_first_conversation = true
+	=> END
+#		Alice: What type of business?
+#	Mr. Jones: I own a small coal mining operation. Small for now at least.
