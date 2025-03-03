@@ -1,28 +1,31 @@
 #This conversation should cover Alice's father and the reality/struggle of the coal miner for the benefit of Mr. Jones
 ~ start
-if State.mrjones_and_alice_had_first_conversation == false
+if State.alice_and_mrjones_have_been_introduced == false and State.mrjones_and_alice_had_first_conversation == false and State.alice_and_mrjones_had_first_conversation == false
 	Alice: I hear your a businessman out of West Virginia.
-	Mr. Jones: That's right. => option
-elif State.mrjones_and_alice_had_first_conversation == true
-	Alice: Hey, Mr. Jones, thanks for the advice earlier.
-	Mr. Jones: You're welcome. You mentioned your family was in the coal business?
-	Alice: That's right, my pa was a miner.
-	Mr. Jones: Was? Retired? Or is he lookin' for work?
-	=> paHasPassed
-- Alice: It's been nice chatting with you. => END
+	Mr. Jones: That's right. 
+	set State.alice_and_mrjones_have_been_introduced = true
+	=> option
+elif State.alice_and_mrjones_have_been_introduced == true
+	Alice: Hey, Mr. Jones. [if State.alice_and_mrjones_have_been_introduced == true and State.mrjones_and_alice_had_first_conversation == false]I'd like to talk to you.[else]Thanks for the advice earlier.[/if]
+	Mr. Jones: [if State.alice_and_mrjones_have_been_introduced == true and State.mrjones_and_alice_had_first_conversation == true]You're welcome. What would you like to discuss? [else]What would you like to discuss?[/if]
+	=> option
 => END
 
 ~ option
-- Alice: What type of business?
+- Alice: What type of business are you in?
 	Mr. Jones: I own a small coal mining operation. Small for now at least.
 	Alice: Oh, my pa was a miner.
-	Mr. Jones: Was? Retired? Or is he lookin' for work?
-	=> paHasPassed
-- Alice: You've given me a lot to think about, Mr. Jones. => END
+	Mr. Jones: Was? Retired? Or is he lookin' for work? => paHasPassed
+- *Walk in his shoes* [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+	=> END
+- Alice: It's been nice chatting with you. => END
 		
+
 ~ paHasPassed
 - Alice: The coal buried him.
 - Alice: ...
+- Alice: Actually. I'd rather not discuss this at the moment. => END
 Mr. Jones: My condolences. Was it a collapse, explosion, or...? => whatHappenedToPa
 
 ~ whatHappenedToPa
@@ -36,6 +39,7 @@ Mr. Jones: My condolences. Was it a collapse, explosion, or...? => whatHappenedT
 	Alice: He left the mine to go to his deathbed.
 Alice: ...I'm sorry, you'll... [shake]you'll have to excuse me.[/shake]
 set State.alice_and_mrjones_had_first_conversation = true
+do player_character.switch_character("Topher")
 	=> END
 #		Alice: What type of business?
 #	Mr. Jones: I own a small coal mining operation. Small for now at least.

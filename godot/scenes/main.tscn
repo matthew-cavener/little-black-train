@@ -60,7 +60,7 @@ dead_zone_height = 0.106
 draw_limits = true
 limit_bottom = 1080
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
 position = Vector2(222, 540)
 limit_bottom = 1080
 limit_smoothed = true

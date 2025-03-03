@@ -1,3 +1,66 @@
+#This conversation should cover Mr. Jones encouraging Alice to take a chance. To take risks.
 ~ start
-Mr. Jones:
+if State.alice_and_mrjones_have_been_introduced == false and State.mrjones_and_alice_had_first_conversation == false and State.alice_and_mrjones_had_first_conversation == false
+	Mr. Jones: Alice, is it? I hear you set out without a destination in mind. That takes some real courage.
+	Alice: Thank you. A lot of people seem to think I'm a fool. 
+	set State.alice_and_mrjones_have_been_introduced = true
+#	set State.mrjones_and_alice_had_first_conversation = true
+	=> option
+elif State.alice_and_mrjones_have_been_introduced == true
+	Alice: Yes?
+	Mr. Jones: [if State.alice_and_mrjones_have_been_introduced == true and State.mrjones_and_alice_had_first_conversation == false]I'd like to talk to you.[else]I was thinking about earlier. When you were talking about makin' something of yourself.[/if]
+	=> option
+=> END
+
+
+~ option
+- Mr. Jones: A lot of people are just scared to take a risk.
+	Alice: Well. I'm scared I'm making a terrible mistake.
+	Alice: I'm headed out West to drill for oil. I know a lot about geology.
+	Alice: But what if I'm wrong? What If I fail?
+	=> information
+- Mr. Jones: Any idea what you might do for a living?
+	Alice: Well, I'm [i]planning[/i] on drilling for black gold somewhere out West.
+	Alice: I've always loved geology. I like to think I know a thing or two.
+	Mr. Jones: Ah. A young entrepreneur!
+	Alice: Well, I don't know about that. To be honest. I'm down right terrified. What if I'm wrong? What if I fail.
+	=> information
+- *Walk in her shoes* [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+- Mr. Jones: Do excuse me. => END
+=> END
+
+~ information
+- Mr. Jones: Why do you think you'll fail?
+	Alice: I'm just paralyzed with uncertainty. I gotta make somethin' of myself. I don't want to make the wrong choices but what if I drill somewhere dry?
+	Alice: What if I find oil but run the business into the ground?
+	Alice: What if... What if I am a fool?
+	=> gambleSpeech
+- Mr. Jones: What if you succeed? 
+	Alice: Come now. Do you [i]really[/i] think that's a compellin' argument?
+	Mr. Jones: What I mean to say is...
+	=> whatImeantToSay
+=> END
+
+~ whatImeantToSay
+- Mr. Jones: Why do you think you'll fail?
+=> gambleSpeech
+	
+	
+~ gambleSpeech
+- Mr. Jones: It's going to be a gamble.
+	Mr. Jones: It always is when you start something new, especially in business. But you've got to trust your instincts sometimes.
+	Mr. Jones: Leaving home with not a single clue where you're going to land? That was a gamble and it's brave.
+	Mr. Jones: This is too. What if you fail? Then you learn something. Make an adjustment and carry on and take a chance on something else.
+	Mr. Jones: You seem like an ambitious, young woman. You'll figure things out.
+	Alice: You know. I hadn't thought about it that way before. I'll chew on that a while. Thanks, Mr. Jones.
+- Mr. Jones: It's going to be tough.
+	Mr. Jones: It always is when you start something new, especially in business. But you've got to trust your instincts sometimes.
+	Mr. Jones: Leaving home with not a single clue where you're going to land? That was a gamble and it's brave.
+	Mr. Jones: This is too. What if you fail? Then you learn something. Make an adjustment and carry on and take a chance on something else.
+	Mr. Jones: You seem like an ambitious, young woman. You'll figure things out.
+	Alice: You know. I hadn't thought about it that way before. I'll chew on that a while. Thanks, Mr. Jones.
+- Mr. Jones: Nevermind. 
+	Alice: Oh, ok. Bye. => END
+set State.mrjones_and_alice_had_first_conversation = true
 => END
