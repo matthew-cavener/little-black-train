@@ -1,11 +1,20 @@
+#This conversation should cover Alice speaking to Tom. She should ask about his family. Name of his son. Arlo. He helped her but she doesn't have anything for him.
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+if State.alice_and_tom_have_been_introduced == false and State.tom_and_alice_had_first_conversation == false and State.alice_and_tom_had_first_conversation == false
+	Alice: So Tom, do you have a big family?
+	Tom: No. God only blessed my wife, Imogene, and I with one child, Arlo. He's about your age.
+	Alice: They sound lovely.
+	set State.alice_and_tom_have_been_introduced = true
+#	set State.mrjones_and_alice_had_first_conversation = true
+	=> option
+elif State.alice_and_tom_have_been_introduced == true
+	Tom: Yes?
+	=> option
+=> END
+
+
+~ option
+- *Walk in his shoes* [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+- I hope Imogene and Arlo can join you soon. => END
 => END

@@ -1,11 +1,59 @@
+#This conversation should cover Ms. Liddell speaking with Tom about where pride comes from. That his family still loves him in spite of his failures.
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+if State.msliddell_and_tom_have_been_introduced == false and State.tom_and_msliddell_had_first_conversation == false and State.tom_and_msliddell_had_first_conversation == false
+	Ms. Liddell: Your name's Tom, right? You look like you have the weight of the world on your shoulders there.
+	Ms. Liddell: A butterscotch always cheers me up. Would you like one?
+	set State.msliddell_and_tom_have_been_introduced = true
+#	set State.mrjones_and_alice_had_first_conversation = true
+	=> option
+elif State.msliddell_and_tom_have_been_introduced == true
+	Tom: Hello, Ms. Liddell.
+	Ms. Liddell: [if State.msliddell_and_tom_have_been_introduced == true and State.msliddell_and_tom_had_first_conversation == false]You want a butterscotch, Tom?[else]Here for a butterscotch?[/if]
+	=> option
+=> END
+
+
+~ option
+- Tom: That's awfully kind of you maam, yes, please. 
+	Ms. Liddell: Now why don't you tell me about what's weighing on you.
+	=> information
+- Tom: No thank you, maam. 
+	Ms. Liddell: Well if you change your mind. How about you tell me what's weighing on you.
+	=> information
+- *Walk in her shoes* [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+- Tom: Maybe later. Excuse me, maam. => END
+=> END
+
+~ information
+- Tom: I'm a pitiful excuse for a man.
+	Tom: I've let my family down. I've lost the farm.
+	Tom: My brother-in-law was kind enough to take them in until I can find gainful employment out West.
+	Tom: But I can't help but feel I've laid my burden on his shoulders.
+	Ms. Liddell: Now, now, Sonny. Let me tell you something about hardship. => listenHereSonny
+- Tom: I fear my wife and son are ashamed of me.
+	Tom: I was supposed to provide. 
+	Tom: And I've not only failed them, I've made them a burden to my brother-in-law whose had to take them in.
+	Tom: At least until I can get us set up in Oregon.
+	Ms. Liddell: There, there, Sonny. Let me tell you something about struggle. => listenHereSonny
+- Tom: Talking about my feelings isn't really my thing.
+	Tom: I'm a man. I'm 40! => END
+=> END
+	
+	
+~ listenHereSonny
+	Ms. Liddell: Your family doesn't love you any less for these hardships.
+	Ms. Liddell: Trust me. [i]I'd know.[/i] I lost a great deal a few years ago.
+	Ms. Liddell: And you know what they had for me? Not scorn, or resentment.
+	MS. Liddell: But love and encouragement.
+	Ms. Liddell: I've come to learn that falling on hard times doesn't define us.
+	Ms. Liddell: But how to compose ourselves throughout those times to the otherside does.
+	Ms. Liddell: With self-compassion, and perserverance. Your family wants that for you.
+	Ms. Liddell: They aren't ashamed but proud of you. Because you are out here perserverin'.
+- Tom: Maybe your right.
+	Ms. Liddell: Alrighty, let me know if you want a butterscotch. => END
+- Tom: You're just sayin' that.
+	Ms. Liddell: Only because it's the truth. 
+	Tom: Thank you, Ms. Liddell. You've given me somethin' to ponder on.=> END
+set State.tom_and_msliddell_had_first_conversation = true
 => END
