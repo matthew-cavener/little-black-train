@@ -96,13 +96,14 @@ func switch_character(new_character_name: String) -> void:
     if new_character == current_character:
         print("Tried switching to current character")
         return
+    current_character.z_index = 0
     current_character.is_player_controlled = false
     current_character.remove_from_group("player")
     current_character.actionable_shape.set_deferred("disabled", true)
     current_character.actionable_finder_shape.set_deferred("disabled", false)
 
+    new_character.z_index = 1
     new_character.is_player_controlled = true
-    z_index = 1
     new_character.add_to_group("player")
     new_character.actionable_shape.set_deferred("disabled", false)
     new_character.actionable_finder_shape.set_deferred("disabled", true)
