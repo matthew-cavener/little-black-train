@@ -8,7 +8,7 @@ var topher_has_charles_ticket: bool = false
 var topher_has_mrjones_ticket: bool = false
 var topher_has_msliddell_ticket: bool = false
 var topher_has_tom_ticket: bool = false
-var topher_has_given_tickets: bool = true
+var topher_has_given_tickets: bool = false
 
 #Alice and Mr. Jones Conversations
 var alice_and_mrjones_had_first_conversation: bool = false
