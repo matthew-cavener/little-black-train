@@ -1,11 +1,64 @@
+#This conversation should cover Tom inspiring Alice on her journey. Which leads to her decision to go to OK.
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+if State.alice_and_tom_have_been_introduced == false and State.tom_and_alice_had_first_conversation == false and State.alice_and_tom_had_first_conversation == false
+	Tom: So your setting out on your own, seeking your fortune?
+	Alice: I am.
+	set State.alice_and_tom_have_been_introduced = true
+#	set State.mrjones_and_alice_had_first_conversation = true
+	=> option
+elif State.alice_and_tom_have_been_introduced == true
+	Tom: Evenin' miss.
+	Alice: [if State.alice_and_tom_have_been_introduced == true and State.tom_and_alice_had_first_conversation == false]I hope I find a place somewhere.[else]Maybe I'll go to Oklahoma.[/if]
+	=> option
+=> END
+
+
+~ option
+- Tom: Reminds me o' my daddy.
+	Alice: It does?
+	Tom: He set out West for a plot in the Land Run.
+	Alice: Oh wow! So your daddy was a Sooner? => wereYouASooner
+- Tom: My daddy did that same thing.
+	Tom: Only he went in search of a homestead.
+	Alice: Where did he settle?
+	Tom: Land was free in Oklahoma. My daddy went out during the Land Run.
+	Alice: Oh wow! So your daddy was a Sooner? => wereYouASooner
+- *Walk in her shoes* [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+- Tom: Pardon me, miss. => END
+=> END
+
+
+~ wereYouASooner
+- Tom: I ain't the son o' no cheat.
+	Tom: He waited for the gun before settin' out.
+	Tom: Mind you, There were a lot of good plots that got grabbed up unfairly.
+	Tom: But he lucked out. Won the race for that plot.
+	Tom: He built it up and then I took over when he passed.
+	Tom: Of course I kept the farm when he passed. Coulda sold it.
+	Tom: I grew wheat until the Bonanza.
+	Tom: Then the dust came. Now I've lost my farm. I'm headed further West for work.
+	Alice: Was it worth it? => theUnknown
+- Tom: No, no, nothing like that.
+	Tom: He waited. And got his plot in the end.
+	Tom: A perfect plot. Perfect for wheat. I grew up there.
+	Tom: Buried daddy on that plot.
+	Tom: I grew waves of gold. Shimmering in the sunlight. Just like he did.
+	Tom: I remember my son playing in those fields. I'm gonna send for him and the Missus when I get set in Oregon.
+	Alice: That sounds idyllic.
+=> theUnknown
+	
+	
+~ theUnknown
+- Tom: Oh it was.
+	Tom: It was because it was mine. It wasn't about the wheat. It was about the [i]potential[/i] that land held. And the legacy.
+	Tom: Sure it was hard. There was lots to be done. It took a lot of hard labor.
+	Tom: But I worked that land and built my house from the sweat o' my own brow.
+	Tom: It was my daddy dream to build it. And it was mine to keep it. Was supposed to be my son's after me.
+	Tom: I can't think of nothin' prettier than [i]my[/i] first harvest.
+	Tom: And nothin' more [shake]bitter[/shake] than the last.
+	Tom: But I would do it again for that sliver of time the dream was mine.
+- Tom: Excuse me. 
+	Alice: Oh. Um. Alright. => END
+set State.tom_and_alice_had_first_conversation = true
 => END

@@ -1,11 +1,6 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Mr. Jones: Mind if I ask about your coal supplier?
+Charon: [shake]...[/shake]
+Mr. Jones: Or maybe I should talk to Topher...
+Mr. Jones: *That was unsettling.*
 => END
