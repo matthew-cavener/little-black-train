@@ -26,7 +26,7 @@ ease = 2
 shader = ExtResource("7_skv7a")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg6c3"]
-size = Vector2(66, 160)
+size = Vector2(66, 392)
 
 [node name="Main" type="Node2D"]
 
@@ -90,12 +90,6 @@ position = Vector2(1402, 701)
 [node name="TheConductor" parent="." instance=ExtResource("7_w8plg")]
 position = Vector2(222, 684)
 
-[node name="InvisibleWall" type="Area2D" parent="."]
-
-[node name="InvisibleWallCollision" type="CollisionShape2D" parent="InvisibleWall"]
-position = Vector2(17, 784)
-shape = SubResource("RectangleShape2D_bg6c3")
-
 [node name="Engineer" parent="." instance=ExtResource("11_xk4fx")]
 position = Vector2(4139, 516)
 
@@ -110,3 +104,9 @@ position = Vector2(525, 682)
 
 [node name="OldGranny" parent="." instance=ExtResource("15_1uc2m")]
 position = Vector2(2983, 691)
+
+[node name="InvisibleWall" type="StaticBody2D" parent="."]
+position = Vector2(95, 674)
+
+[node name="InvisibleWallCollision" type="CollisionShape2D" parent="InvisibleWall"]
+shape = SubResource("RectangleShape2D_bg6c3")
