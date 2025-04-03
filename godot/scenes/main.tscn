@@ -85,7 +85,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="YoungGranny" parent="." instance=ExtResource("8_1ixc8")]
-position = Vector2(1402, 701)
+position = Vector2(3184, 696)
 
 [node name="TheConductor" parent="." instance=ExtResource("7_w8plg")]
 position = Vector2(222, 684)
@@ -103,7 +103,7 @@ position = Vector2(2033, 675)
 position = Vector2(525, 682)
 
 [node name="OldGranny" parent="." instance=ExtResource("15_1uc2m")]
-position = Vector2(2983, 691)
+position = Vector2(1208, 680)
 
 [node name="InvisibleWall" type="StaticBody2D" parent="."]
 position = Vector2(95, 674)
