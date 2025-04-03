@@ -1,11 +1,87 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+if State.charles_and_mrjones_have_been_introduced == false and State.mrjones_and_charles_had_first_conversation == false and State.alice_and_tom_had_first_conversation == false
+	Mr. Jones: Hello there, chap.
+	Charles: I heard you were just in New York for business. I'd love to chat with you. Ya know, network.
+	Mr. Jones: Network? I'm all for a chat, but what do you mean by... network?
+	Charles: Ya know, connect, professionally.
+	Mr. Jones: Oh, I see. I don't believe I've heard that expression before. Let's "network".
+	set State.charles_and_mrjones_have_been_introduced = true
+	=> option
+elif State.charles_and_mrjones_have_been_introduced == true
+	Mr. Jones: Hello Charles, are you looking to do some more "networking"?
+	Charles: Haha, yeah. [if State.charles_and_mrjones_have_been_introduced == true and State.mrjones_and_charles_had_first_conversation == false]About our chat earlier...[else]I admire your introspection.[/if]
+	=> option
 => END
+
+~ option
+- Charles: What brought you to New York?
+	Mr. Jones: I was speaking with an advisor. I've gained quite a bit of captial with my coal mines and have some hard decisions to make.
+	Charles: I'm a financial advisor myself. Maybe you could tell me more about it. 
+	Mr. Jones: I'd love to hear your thoughts. => oneOfUs
+- Charles: What kind of business are you in?
+	Mr. Jones: I work in the coal industry, been heading to New York regularly for business meetings. Have some decisions to make about the direction for my company.
+	Charles: What kind of decisions, if you don't mind me asking? => twoOfUs
+- *Walk in his shoes* [if State.topher_has_given_tickets == true]
+	do player_character.switch_character(character_spoken_to.character_name)
+- Charles: See ya later. => END
+
+~ oneOfUs
+Mr. Jones: Tell me about your business. => twoOfUs
+
+~ twoOfUs
+Mr. Jones: My father owned a coal mine. It took him a lot of time, effort, money, to get it up and running but it was his.
+Mr. Jones: He grew his business from the ground up. Or should I say, from under ground hohoho.
+Mr. Jones: He made a fair amount of money off of it, could have made more. But he wanted to share that wealth they were digging out with his men. He was friendly with the whole lot of those miners.
+Mr. Jones: Other mine companies couldn't care less about whose digging it out. But my father did. He'd always say the miners were the heart of the operation and you have to take care of your heart.
+Mr. Jones: He cared about those men. If they thought it was too dangerous down a tunnel he'd listen to what they had to say. Took advise from them.
+Mr. Jones: Recently, we've stuck a good vein. I've gained more capital in the last year than my father did in his lifetime.
+Mr. Jones: I'm thinking of using that to diversify the business. Not just coal. Not just one mine... Be as rich as the best of them.
+- Charles: Congratulations. => congrats
+- Charles: That's incredible! => incredible
+
+~ congrats
+Mr. Jones: Congratulations, you'd think so wouldn't you. *hump*
+- Charles: I'm sorry, I don't follow. => betterThan
+- Charles: Oh. Um... sorry. (leave conversation) => END
+
+~ incredible
+Mr. Jones: Not incredible enough, evidently.
+- Charles: What do you mean? => betterThan
+- Charles: Sorry to hear that. Excuse me. (leave conversation) => END
+
+~ betterThan
+Mr. Jones: I went to great schools, a great university, had opportunities from my father's success but never any true peers.
+Mr. Jones: I wanted to be a part of a world of class and prestige. Be in with the [i]Old[/i] crowd.
+Mr. Jones: The [i]Better[/i] crowd. But I've realized how... undeserving they are.
+Mr. Jones: My family's wealth is new. My wealth is still too new. Too rooted in an understanding.
+Mr. Jones: I have ansestors in living memory who were poor. Champions in our family lore. Inspirational. I am indebted to their labor.
+Mr. Jones: To realize their evolving dreams for a better life....
+Mr. Jones: And I find myself at a cross roads. Forsake the dream, or forsake the "heart" as my father put it.
+- Charles: How do you mean? => moneyOrMorality
+- Charles: I don't understand. => moneyOrMorality
+- Charles: *yawn* I'll be back. (leave conversation) => END
+
+~ moneyOrMorality
+Mr. Jones: The advice I recieved in New York from several advisors is to diversity. Open more mines, mine for other minerals. Cut costs. Pay the miners less, work them harder.
+Mr. Jones: If they push back, well. The Pinkertons are always an option.
+Mr. Jones: My business advisors even introduced me to investors. Eager to fund this expansion for a percentage.
+Mr. Jones: I'd have to let go of a lot of the reigns some and consider their interests. I could become a respectable coal baron in society.
+Mr. Jones: Respectable enough for the social acceptance of the rich. Their connections.
+Mr. Jones: But my father's voice haunts me. I'd be cutting out the miners. Burying them.
+Mr. Jones: I can't hold their interests and the investors. They can't balance.
+Mr. Jones: I would have to cut out the "heart" or settle.
+Mr. Jones: I don't want that. But I want the prestige. I want this legacy.
+- Charles: But at what cost? => youAreRight
+- Charles: Is it really worth it? => youAreRight
+- Charles: Well good luck with that. (Leave conversation) => END
+
+~ youAreRight
+Charles: Think of it this way. You're family wanted a better life. 
+Charles: Part of having a better life, is helping others along the way.
+Charles: Maybe you're business is enough as it is for you and your miner.
+Charles: Maybe you give them the safety and job security they need. Better yet, you should invest in them.
+Charles: I'm sure they have ideas how to improve the operation too. And maybe you and your miners can diversify in a few years without the need for external investors.
+Charles: Share the wealth. Share the dream. Their respect matters more.
+Mr. Jones: You know, you've given me a lot to think about. You might just be right. I've got a lot to think about.
+Mr. Jones: Thank you. 
+
